@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>박지현 | Portfolio</title>
+<meta name="description" content="임베디드 SW / 펌웨어 엔지니어 박지현 포트폴리오">
+
+<!--
+ ══════════════════════════════════════════════════════════
+  채워 넣을 곳은 class="fill" (연한 점선 밑줄) 로 표시했습니다.
+  값을 넣고 class="fill" 만 지우면 됩니다.
+
+   1) 프로필 사진 : ./images/profile.jpg  (3:4 비율 권장)
+   2) 프로젝트 6칸 중 4칸만 채워져 있습니다 → PROJECTS 배열에 추가
+   3) 프로젝트 수행기간 / GitHub 링크
+   4) 교육과정 상세 설명 2건
+   5) 포트폴리오 PDF : ./file/박지현_포트폴리오.pdf
+ ══════════════════════════════════════════════════════════
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#FFFFFF;
+  --bg-soft:#F7F8FA;
+  --ink:#15181D;
+  --ink-2:#565D68;
+  --ink-3:#8C939C;
+  --line:#E5E8EC;
+  --navy:#14355F;
+  --navy-lt:#EAF0F8;
+  --maxw:1080px;
+  --sans:'Noto Sans KR','Inter',-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  --en:'Inter','Noto Sans KR',sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--sans);font-weight:400;line-height:1.75;
+  font-size:15px;-webkit-font-smoothing:antialiased;
+}
+a{color:var(--navy);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:-999px}
+.skip:focus{left:16px;top:16px;background:var(--navy);color:#fff;padding:10px 14px;z-index:99}
+.fill{
+  color:var(--ink-3);border-bottom:1px dotted var(--ink-3);
+  font-size:.94em;
+}
+
+/* ───── header ───── */
+.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top__in{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--en);font-weight:800;font-size:16px;letter-spacing:-.01em;color:var(--ink)}
+.menu{display:flex;gap:26px}
+.menu a{font-family:var(--en);font-size:13.5px;font-weight:500;color:var(--ink-2)}
+.menu a:hover{color:var(--navy);text-decoration:none}
+@media(max-width:760px){.menu{gap:14px}.menu a{font-size:12px}}
+@media(max-width:520px){.menu a.opt{display:none}}
+
+/* ───── hero ───── */
+.hero{padding:110px 0 120px}
+.hero__eyebrow{
+  font-family:var(--en);font-size:13px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--navy);margin:0 0 22px
+}
+.hero h1{
+  font-family:var(--en);font-weight:800;
+  font-size:clamp(46px,8.5vw,88px);line-height:1.02;letter-spacing:-.03em;
+  margin:0 0 26px;color:var(--ink)
+}
+.hero h1 span{display:block}
+.hero__sub{font-size:17px;color:var(--ink-2);margin:0 0 38px;font-weight:300}
+.hero__sub b{font-weight:500;color:var(--ink)}
+.btn{
+  display:inline-block;font-family:var(--en);font-size:14px;font-weight:600;
+  padding:13px 26px;border-radius:2px;border:1px solid var(--navy);
+  background:var(--navy);color:#fff;cursor:pointer;transition:.18s
+}
+.btn:hover{background:#0D2544;border-color:#0D2544;text-decoration:none;color:#fff}
+.btn--out{background:transparent;color:var(--navy)}
+.btn--out:hover{background:var(--navy-lt);color:var(--navy)}
+
+/* ───── section ───── */
+.sec{padding:96px 0;border-top:1px solid var(--line)}
+.sec--soft{background:var(--bg-soft)}
+.sec__head{margin-bottom:44px}
+.sec__label{
+  font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--navy);margin:0 0 10px
+}
+.sec__title{font-family:var(--en);font-size:32px;font-weight:800;letter-spacing:-.02em;margin:0;line-height:1.2}
+.sec__note{font-size:13.5px;color:var(--ink-3);margin:10px 0 0}
+
+/* ───── about ───── */
+.about{display:grid;grid-template-columns:260px 1fr;gap:56px;align-items:start}
+.photo{border:1px solid var(--line);border-radius:3px;overflow:hidden;background:var(--bg-soft)}
+.photo img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.photo--empty{
+  aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:18px;border-style:dashed;
+  font-family:var(--en);font-size:12px;color:var(--ink-3);line-height:1.6
+}
+.info{margin:0;border-top:1px solid var(--ink)}
+.info__row{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:14px 2px;border-bottom:1px solid var(--line)}
+.info__k{font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:0;padding-top:3px}
+.info__v{margin:0;font-size:15px}
+@media(max-width:760px){.about{grid-template-columns:1fr;gap:32px}.photo{max-width:220px}}
+@media(max-width:520px){.info__row{grid-template-columns:1fr;gap:2px}}
+
+/* ───── projects ───── */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.pcard{
+  border:1px solid var(--line);border-radius:3px;background:#fff;
+  text-align:left;font:inherit;color:inherit;cursor:pointer;padding:0;
+  display:flex;flex-direction:column;transition:.2s
+}
+.pcard:hover{border-color:var(--navy);box-shadow:0 6px 22px rgba(20,53,95,.10);transform:translateY(-2px)}
+.pcard__strip{
+  background:var(--bg-soft);border-bottom:1px solid var(--line);
+  padding:12px 20px;font-family:var(--en);font-size:11.5px;font-weight:500;
+  letter-spacing:.04em;color:var(--ink-2);
+  display:flex;justify-content:space-between;align-items:center;gap:10px
+}
+.badge{font-size:10.5px;font-weight:600;color:var(--navy);background:var(--navy-lt);padding:2px 8px;border-radius:2px;white-space:nowrap}
+.pcard__body{padding:20px;display:flex;flex-direction:column;flex:1}
+.pcard__date{font-family:var(--en);font-size:12px;color:var(--ink-3);margin:0 0 8px}
+.pcard__title{font-size:18px;font-weight:700;margin:0 0 10px;line-height:1.4}
+.pcard__sum{font-size:13.5px;color:var(--ink-2);font-weight:300;margin:0 0 18px;flex:1}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--en);font-size:11px;font-weight:500;padding:3px 9px;border:1px solid var(--line);border-radius:2px;color:var(--ink-2);background:#fff}
+.chip--on{border-color:var(--navy);color:var(--navy);background:var(--navy-lt)}
+.pcard--empty{
+  border-style:dashed;cursor:default;align-items:center;justify-content:center;
+  min-height:200px;color:var(--ink-3);font-size:13px;text-align:center;padding:24px
+}
+.pcard--empty:hover{transform:none;box-shadow:none;border-color:var(--line)}
+
+/* ───── skills ───── */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px}
+.sk h3{font-family:var(--en);font-size:17px;font-weight:700;margin:0 0 18px;padding-bottom:12px;border-bottom:2px solid var(--ink)}
+.sk h4{font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:20px 0 10px}
+.sk h4:first-of-type{margin-top:0}
+
+/* ───── awards / careers ───── */
+.tl{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.tl li{display:grid;grid-template-columns:180px 1fr;gap:24px;padding:20px 2px;border-bottom:1px solid var(--line)}
+.tl time{font-family:var(--en);font-size:13px;font-weight:500;color:var(--ink-3);padding-top:2px}
+.tl h3{font-size:16.5px;font-weight:700;margin:0 0 4px;line-height:1.5}
+.tl p{margin:0;font-size:13.5px;color:var(--ink-2);font-weight:300}
+.prize{display:inline-block;font-family:var(--en);font-size:11.5px;font-weight:600;color:var(--navy);background:var(--navy-lt);padding:2px 9px;border-radius:2px;margin-left:6px}
+@media(max-width:600px){.tl li{grid-template-columns:1fr;gap:6px}}
+
+/* ───── footer ───── */
+.foot{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0 48px}
+.foot__grid{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+.foot__mail{font-family:var(--en);font-size:clamp(24px,4.5vw,38px);font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.foot__mail a{color:inherit}
+.foot__copy{font-family:var(--en);font-size:12.5px;color:var(--ink-3);margin:40px 0 0}
+
+/* ───── modal ───── */
+.modal{position:fixed;inset:0;z-index:80;display:none;background:rgba(21,24,29,.5);padding:20px;overflow-y:auto}
+.modal.open{display:block}
+.sheet{max-width:860px;margin:40px auto;background:#fff;border-radius:4px;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+.sheet__top{position:sticky;top:0;background:#fff;z-index:2;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:26px 32px 18px;border-bottom:1px solid var(--line);border-radius:4px 4px 0 0}
+.sheet__top p{font-family:var(--en);font-size:12.5px;color:var(--ink-3);margin:0 0 8px}
+.sheet__top h2{font-size:23px;font-weight:700;margin:0;line-height:1.35}
+.x{font-family:var(--en);font-size:13px;font-weight:600;background:none;border:1px solid var(--line);border-radius:2px;padding:7px 13px;cursor:pointer;color:var(--ink-2);flex-shrink:0}
+.x:hover{border-color:var(--navy);color:var(--navy)}
+.sheet__body{padding:6px 32px 40px}
+.sheet__body h3{font-family:var(--en);font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin:32px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.sheet__body p{font-size:14.5px;margin:0 0 12px;font-weight:300}
+.sheet__body ul{margin:0;padding-left:19px;font-size:14px;font-weight:300}
+.sheet__body li{margin-bottom:9px}
+.sheet__body b{font-weight:600}
+.sheet__body code{font-family:var(--en);font-size:12.5px;background:var(--bg-soft);padding:1px 5px;border-radius:2px}
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px;font-weight:300}
+.tbl th{font-family:var(--en);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);text-align:left;padding:8px 12px;border-bottom:1px solid var(--ink)}
+.tbl td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl td:first-child{width:30%;font-weight:500;color:var(--ink)}
+.tbl td:last-child{width:38%;color:var(--navy)}
+@media(max-width:620px){
+  .tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:auto}
+  .tbl thead{display:none}
+  .tbl tr{border-bottom:1px solid var(--ink);padding:12px 0}
+  .tbl td{border:none;padding:3px 0;width:auto!important}
+}
+.rv{opacity:0;transform:translateY(12px)}
+.rv.in{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease}
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  .rv{opacity:1;transform:none}html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">본문 바로가기</a>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="logo" href="#home">JIHYUN PARK</a>
+    <nav class="menu" aria-label="주요 메뉴">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#awards" class="opt">Awards</a>
+      <a href="#careers" class="opt">Careers</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ══ HERO ══ -->
+<section class="hero wrap" id="home">
+  <p class="hero__eyebrow">Portfolio</p>
+  <h1><span>Embedded</span><span>Engineer</span></h1>
+  <p class="hero__sub"><b>임베디드 SW / 펌웨어 엔지니어 박지현</b>입니다.</p>
+  <a class="btn" href="#projects">View Latest Works</a>
+</section>
+
+<!-- ══ ABOUT ══ -->
+<section class="sec sec--soft" id="about">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="sec__label">About</p>
+      <h2 class="sec__title">About Me</h2>
+    </div>
+    <div class="about">
+      <figure class="photo" style="margin:0">
+        <img src="./images/profile.jpg" alt="박지현 프로필 사진"
+             onerror="this.parentNode.innerHTML='&lt;div class=\'photo--empty\'&gt;프로필 사진을&lt;br&gt;./images/profile.jpg&lt;br&gt;경로에 넣어주세요&lt;/div&gt;'">
+      </figure>
+      <dl class="info">
+        <div class="info__row"><dt class="info__k">Name</dt><dd class="info__v">박지현</dd></div>
+        <div class="info__row"><dt class="info__k">Email</dt><dd class="info__v"><a href="mailto:nice121223@gmail.com">nice121223@gmail.com</a></dd></div>
+        <div class="info__row"><dt class="info__k">Birth date</dt><dd class="info__v">00. 01. 04</dd></div>
+        <div class="info__row"><dt class="info__k">Language</dt><dd class="info__v">OPIc IM</dd></div>
+        <div class="info__row"><dt class="info__k">Location</dt><dd class="info__v">경기도 광명시</dd></div>
+        <div class="info__row"><dt class="info__k">Education</dt><dd class="info__v">상명대학교 전자공학과</dd></div>
+        <div class="info__row"><dt class="info__k">Interest</dt><dd class="info__v">임베디드 펌웨어 · 디바이스 드라이버 / BSP</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROJECTS ══ -->
+<section class="sec" id="projects">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="sec__label">Projects</p>
+      <h2 class="sec__title">Projects</h2>
+      <p class="sec__note">카드를 누르면 담당 역할과 트러블슈팅까지 확인할 수 있습니다.</p>
+    </div>
+    <div class="grid" id="grid"></div>
+    <p style="margin-top:32px">
+      <a class="btn btn--out" href="./file/박지현_포트폴리오.pdf" download>더 자세한 프로젝트를 보고 싶다면? (PDF)</a>
+    </p>
+  </div>
+</section>
+
+<!-- ══ SKILLS ══ -->
+<section class="sec sec--soft" id="skills">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="sec__label">Skills</p>
+      <h2 class="sec__title">Skills</h2>
+    </div>
+    <div class="skills">
+      <div class="sk">
+        <h3>Languages</h3>
+        <h4>Main Skills</h4>
+        <div class="chips">
+          <span class="chip chip--on">C / C++</span>
+          <span class="chip chip--on">Verilog HDL</span>
+        </div>
+        <h4>Experience</h4>
+        <div class="chips">
+          <span class="chip">Python</span>
+        </div>
+      </div>
+      <div class="sk">
+        <h3>Platforms &amp; Development</h3>
+        <h4>Main Skills</h4>
+        <div class="chips">
+          <span class="chip chip--on">Vivado</span>
+          <span class="chip chip--on">Linux</span>
+          <span class="chip chip--on">STM32 CubeIDE</span>
+          <span class="chip chip--on">PlatformIO</span>
+        </div>
+        <h4>Experience</h4>
+        <div class="chips">
+          <span class="chip">Synopsys VCS</span>
+          <span class="chip">Verdi</span>
+          <span class="chip">Quartus</span>
+          <span class="chip">ModelSim</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ AWARDS ══ -->
+<section class="sec" id="awards">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="sec__label">Awards</p>
+      <h2 class="sec__title">Awards</h2>
+    </div>
+    <ol class="tl">
+      <li>
+        <time>2025. 02.</time>
+        <div>
+          <h3>한국 무라타 전자 아이디어 공모전<span class="prize">최우수상</span></h3>
+          <p class="fill">수상 주제 한 줄 (예: OO 센서를 활용한 OO 시스템)</p>
+        </div>
+      </li>
+      <li>
+        <time>2025. 01.</time>
+        <div>
+          <h3>상명대학교 오름교육페스티벌<span class="prize">장려상</span></h3>
+          <p class="fill">수상 주제 한 줄</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ══ CAREERS ══ -->
+<section class="sec sec--soft" id="careers">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="sec__label">Careers</p>
+      <h2 class="sec__title">Careers</h2>
+    </div>
+    <ol class="tl">
+      <li>
+        <time>2026.02. – 2026.08.</time>
+        <div>
+          <h3>[대한상공회의소 서울기술교육센터] AI 시스템 반도체 SW 개발자 교육 이수 중 (980H)</h3>
+          <p class="fill">이수 내용 한 줄 (예: ARM Cortex-M 펌웨어 · RTOS · 리눅스 디바이스 드라이버 · RTL 설계)</p>
+        </div>
+      </li>
+      <li>
+        <time>2025.08. – 2025.08.</time>
+        <div>
+          <h3>[한국기술교육대학교] 반도체 공정 기술 실습 교육 (40H)</h3>
+          <p class="fill">이수 내용 한 줄 (예: 포토·식각·증착 공정 실습)</p>
+        </div>
+      </li>
+      <li>
+        <time>2024.03. – 2027.08.</time>
+        <div><h3>상명대학교 전자공학과 졸업 예정</h3></div>
+      </li>
+      <li>
+        <time>2015.03. – 2018.02.</time>
+        <div><h3>진성고등학교 졸업</h3></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot" id="contact">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <p class="sec__label" style="margin-bottom:12px">Contact</p>
+        <div class="foot__mail"><a href="mailto:nice121223@gmail.com">nice121223@gmail.com</a></div>
+      </div>
+      <div class="chips">
+        <a class="btn btn--out" href="./file/박지현_포트폴리오.pdf" download>포트폴리오 PDF</a>
+        <a class="btn btn--out" href="#" >GitHub</a>
+      </div>
+    </div>
+    <p class="foot__copy">© 2026 Jihyun Park. All rights reserved.</p>
+  </div>
+</footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="sheet">
+    <div class="sheet__top">
+      <div><p id="mMeta"></p><h2 id="mTitle"></h2></div>
+      <button class="x" id="mClose" type="button">닫기 ✕</button>
+    </div>
+    <div class="sheet__body" id="mBody"></div>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════
+   프로젝트 데이터 — 이 배열만 수정하면 카드/상세 동시 반영
+   ══════════════════════════════════════════════════ */
+const PROJECTS=[
+{
+  period:'<span class="fill">2026.MM.DD. – 2026.MM.DD.</span>',
+  platform:'STM32F411 ×2 · ESP32-CAM',
+  badge:'Firmware',
+  title:'3축 능동형 스마트 짐벌 및 객체 추적 시스템',
+  summary:'영상 처리와 자세 제어를 별도 MCU로 분리해, 진동 환경에서도 모터 제어 주기 10ms를 놓치지 않고 타겟을 추적하는 짐벌',
+  chips:['STM32F411','ESP32-CAM','FreeRTOS','SPI + DMA','PID'],
+  overview:'단일 MCU 구조에서는 무거운 비전 연산이 PID 제어 루프를 지연시켜 짐벌이 발진하는 병목이 있었습니다. 영상 처리 · 렌더링 · 자세 제어를 물리적으로 분리한 분산 처리 아키텍처(Dual-MCU + Edge Vision)를 설계해, 각 태스크가 독립적인 실시간성을 보장받도록 했습니다.',
+  role:'[Board A] 비전 데이터 라우팅 &amp; 디스플레이 파이프라인 전담 설계·구현',
+  design:[
+    '<b>도메인 분리</b> — 160×120 렌더링은 버스·CPU를 크게 점유합니다. 시각화·중계를 Board A로 떼어내 Board B가 제어 연산에만 집중하도록 병목을 차단했습니다.',
+    '<b>SPI DMA 논블로킹 렌더링</b> — CPU가 픽셀 전송을 기다리지 않도록 DMA로 백그라운드 출력하고, 전송 완료 인터럽트와 세마포어를 결합해 Polling 대기 없는 구조로 구현했습니다.',
+    '<b>핑퐁(더블) 버퍼</b> — 한쪽은 DMA 수신, 다른 쪽은 렌더링을 병렬 처리해 테어링을 제거했습니다.',
+    '<b>패킷 무결성 검사</b> — 헤더/푸터 매직 넘버로 1바이트 밀림을 검출해 깨진 프레임을 폐기하고 다음 프레임에서 자동 재동기화합니다.',
+    '<b>좌표만 중계</b> — 38,409 B 패킷 중 모터 제어에 필요한 좌표·감지 플래그 7 B만 추출해 UART로 Board B에 전달합니다.'
+  ],
+  trouble:[
+    ['첫 프레임만 뜨고 영상 갱신이 멈춤','UART 115200 bps로 38.4 KB 전송 시 약 3초 소요 — 통신 병목','고속 4-Wire SPI로 인터페이스 전면 교체'],
+    ['화면이 위→아래로 찢어짐 (Tearing)','수신(Rx)·렌더링(Tx)이 단일 버퍼를 경합','핑퐁(더블) 버퍼 도입 — 수신/출력 병렬화'],
+    ['렌더링 미세 프레임 지연(잔렉)','osDelay Polling 대기로 불필요한 Idle 누적','세마포어 + 전송완료 인터럽트 결합'],
+    ['빌드 시 RAM Overflow','76 KB 버퍼 2개가 SRAM·기본 Heap 한도 초과','TOTAL_HEAP_SIZE를 가용 한도에 맞춰 재산정'],
+    ['UART 통신이 전혀 동작하지 않음','스케줄러 시작 전 통신 로직 호출 → OS 초기화 순서 문제','메인 로직을 RTOS 태스크 내부로 이관']
+  ],
+  result:[
+    '무거운 비전 연산에도 모터 제어 주기 <b>10 ms</b> 유지',
+    'ESP32 환경에서 <b>20 fps</b> 연속 추적 (정수 연산화 + 1D RLE 군집화)',
+    '테어링 제거 및 프레임 손실 시 자동 복구 확보'
+  ]
+},
+{
+  period:'<span class="fill">2026.MM.DD. – 2026.MM.DD.</span>',
+  platform:'STM32F446RE · bare-metal',
+  badge:'진행 중',
+  title:'EV 충전 시스템 — 배터리 관리(BMS) 노드',
+  summary:'HAL 없이 레지스터를 직접 제어하는 4S 배터리 감시 노드. 고장을 판정한 뒤 100ms 이내에 CAN으로 충전 불허를 통보',
+  chips:['STM32F446RE','Bare-metal','bxCAN','INA226','ACS712'],
+  overview:'STM32는 전원을 직접 차단하지 않습니다. <b>안전 여부를 판단하고 그 결과를 CAN으로 통보</b>하는 것이 역할이며, 물리적 차단은 보호 보드와 EVSE 릴레이가 담당합니다. 이 경계를 명확히 두고 계측 → 판정 → 통보 경로의 지연을 설계 목표로 잡았습니다.',
+  role:'BMS 서브시스템 전담 — 계측 드라이버, 고장 판정 FSM, SOC 추정, CAN 통신',
+  design:[
+    '<b>단계별 브링업</b> — 단일 <code>BRINGUP_STAGE</code> 매크로(1~7)로 주변장치를 하나씩 살려가며 하드웨어를 점진 검증합니다.',
+    '<b>채널별 2점 캘리브레이션</b> — 분압 저항 편차를 채널마다 보정해 셀 전압 측정 오차를 줄였습니다.',
+    '<b>전류 교차 검증</b> — INA226(션트)와 ACS712(홀 소자)를 이중으로 읽어 단일 센서 고장을 검출합니다.',
+    '<b>bxCAN 루프백 우선 전략</b> — 원격 노드가 없으면 프레임이 ACK되지 않으므로, 루프백 모드로 프로토콜을 먼저 확정한 뒤 실선으로 옮겼습니다.',
+    '<b>100 / 500 / 1000 ms 슈퍼루프</b> — 주기별 태스크를 분리해 RTOS 없이 결정론적 실행 시간을 확보했습니다.'
+  ],
+  trouble:[
+    ['CAN 송신이 계속 실패','원격 노드 부재로 프레임이 ACK되지 않음','루프백 모드로 프로토콜 검증 후, 호스트 SocketCAN 툴을 가상 EVSE로 사용'],
+    ['셀 전압 측정값이 채널마다 치우침','분압 저항 편차 및 ADC 오프셋','채널별 2점 캘리브레이션 계수를 산출해 코드에 반영']
+  ],
+  result:[
+    '고장 발생 후 <b>permit = 0 도달까지 100 ms 이내</b> — 호스트 CAN 툴 타임스탬프로 측정',
+    'EVSE 팀 보드 없이도 단독 검증이 가능한 호스트 측 테스트 환경 구축'
+  ]
+},
+{
+  period:'<span class="fill">2025.MM.DD. – 2025.MM.DD.</span>',
+  platform:'STM32F411RE · Arduino · RPi',
+  badge:'Firmware / IoT',
+  title:'Smart Medicine Dispenser',
+  summary:'연령·중복·누적한도 3중 검증을 서버에서 수행하고, 배출부(STM32)를 외부망과 분리한 24시 무인 의약품 배출 시스템',
+  chips:['STM32F411RE','TIM2 PWM','HC-06','Raspberry Pi','MariaDB'],
+  overview:'야간·휴일 의료 공백과 의약품 오남용을 함께 다루기 위해, 처방 판단은 게이트웨이(라즈베리파이)와 DB에서 수행하고 배출부는 외부망과 분리했습니다. 배출부가 직접 인터넷에 노출되지 않으므로 공격면이 줄어듭니다.',
+  role:'STM32 배출부 펌웨어 — 서보 3채널 PWM 제어, DHT11 환경 감시, BT 프로토콜 파싱',
+  design:[
+    '<b>서보 PWM</b> — TIM2 Prescaler 83 / Period 19999로 50 Hz를 만들고, 45°→0° 왕복 1회를 1알로 정의해 채널별 배출 수량을 제어합니다.',
+    '<b>ISR 최소화</b> — <code>HAL_UART_RxCpltCallback</code>에서는 플래그만 세우고, 문자열 파싱은 메인 루프에서 수행해 인터럽트 지연을 줄였습니다.',
+    '<b>비블로킹 처리</b> — 단말의 <code>delay()</code>를 제거하고 <code>millis()</code> 기반 타이머로 전환해 WiFi 수신 버퍼 오버플로우를 방지했습니다.',
+    '<b>환경 감시</b> — DHT11을 500 ms 주기로 읽어 28 ℃ 이상 FAN ON, 35 ℃ 이상 LCD 경고를 발생시킵니다.'
+  ],
+  trouble:[
+    ['알약 배출에 실패했는데 DB는 수령 완료로 기록','PICKUP 시도만으로 DB가 갱신되는 흐름','서보 동작 완료 후에만 PICKUP_DONE을 전송하도록 조건 변경'],
+    ['단말 LCD에 Server Timeout 반복','DB 왕복이 여러 클라이언트를 경유해 응답 대기 시간을 초과','왕복 지연을 흡수하도록 클라이언트/단말 타임아웃 재산정']
+  ],
+  result:[
+    '연령 제한 · 알러지 · 과다복용 · 중복 예약 등 <b>7종 시나리오 전수 검증 통과</b>',
+    'STM32 → BT → 게이트웨이 → DB → 웹 대시보드까지 전 구간 파이프라인 동작 확인'
+  ]
+},
+{
+  period:'<span class="fill">2025.MM.DD. – 2025.MM.DD.</span>',
+  platform:'Basys3 · Artix-7 XC7A35T',
+  badge:'RTL Design',
+  title:'Smart Air Handling Unit (스마트 공조기)',
+  summary:'센서 프로토콜을 MCU 펌웨어가 아닌 RTL FSM으로 직접 구현해, 타이밍 제약을 하드웨어 수준에서 다룬 통합 제어기',
+  chips:['Verilog HDL','Basys3','FSM','DS1302','Oscilloscope'],
+  overview:'DHT11(single-wire), DS1302(3-wire), UART를 단일 비트스트림 안에서 동시에 제어하는 공조기를 Verilog HDL로 설계했습니다. 프로토콜을 라이브러리에 맡기지 않고 FSM으로 직접 구현해, µs 단위 타이밍 제약을 100 MHz 클럭 카운터로 직접 만들어 내는 것을 목표로 했습니다.',
+  role:'uart_controller · data_sender · data_receiver 설계, DS1302 연동 및 setrtc 시각 보정 경로 구현',
+  design:[
+    '<b>DHT11 single-wire</b> — 8-state FSM으로 start / response / 40 bit 수신 / 체크섬 검증 단계를 구현하고, inout 버스 방향을 상태별로 전환합니다.',
+    '<b>DS1302 3-wire</b> — 컨트롤러 FSM과 로직 FSM을 2단으로 분리해 read/write 시퀀스를 관리하고, BCD를 디코딩해 초·분·시를 출력합니다.',
+    '<b>원격 시각 보정</b> — UART RX로 받은 <code>setrtcYYMMDDhhmmss</code>를 circular queue에 버퍼링하고, <code>ds1302_busy</code> 구간에는 trigger를 억제해 쓰기 충돌을 막았습니다.',
+    '<b>3단계 검증 체계</b> — Block Diagram · FSM 선설계 → 모듈별 Test Bench → 오실로스코프 실측의 순서를 고정했습니다.'
+  ],
+  trouble:[
+    ['setrtc 입력 시 시각이 깨짐','DS1302 write 진행 중 새 trigger가 들어와 시퀀스가 겹침','busy 게이팅 + circular queue 버퍼링으로 트리거 직렬화'],
+    ['DHT11 데이터가 간헐적으로 틀림','접촉 불량 및 pull-up 조건 미충족','오실로스코프로 18 ms low + 30 µs pull-up 구간 실측 후 결선·타이밍 보정'],
+    ['예외 상황이 개별적으로만 식별됨','timeout / 체크섬 오류 처리가 모듈에 흩어져 있음','error_controller로 집약해 오류 코드 표시·재시도를 일원화 (개선 예정)']
+  ],
+  result:[
+    'TB에서 온도 25 / 습도 60 주입 시 <b>data = 55_00_3C_00_19</b>, 체크섬 0x55 일치 확인',
+    'DS1302 SCLK/DATA 실측으로 80h·82h·84h 레지스터 주소·값 일치 검증',
+    '모듈 규모가 커질수록 <b>Block Diagram·FSM 선설계</b>가 인터페이스 정의와 디버깅 효율에 결정적임을 확인'
+  ]
+}
+];
+
+/* 카드 렌더링 */
+const grid=document.getElementById('grid');
+grid.innerHTML = PROJECTS.map((p,i)=>`
+  <button class="pcard rv" type="button" data-i="${i}" aria-haspopup="dialog">
+    <div class="pcard__strip"><span>${p.platform}</span><span class="badge">${p.badge}</span></div>
+    <div class="pcard__body">
+      <p class="pcard__date">${p.period}</p>
+      <h3 class="pcard__title">${p.title}</h3>
+      <p class="pcard__sum">${p.summary}</p>
+      <div class="chips">${p.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div>
+    </div>
+  </button>`).join('')
+  + `<div class="pcard pcard--empty rv">프로젝트 추가 슬롯<br><span style="font-size:12px">스크립트의 PROJECTS 배열에 항목을 추가하면<br>카드와 상세 화면이 함께 생성됩니다</span></div>`;
+
+/* 모달 */
+const modal=document.getElementById('modal'), mBody=document.getElementById('mBody');
+let last=null;
+function open(i){
+  const p=PROJECTS[i]; last=document.activeElement;
+  document.getElementById('mMeta').innerHTML=`${p.period} · ${p.platform}`;
+  document.getElementById('mTitle').innerHTML=p.title;
+  mBody.innerHTML=`
+    <h3>프로젝트 개요</h3><p>${p.overview}</p>
+    <h3>담당 역할</h3><p>${p.role}</p>
+    <h3>핵심 설계</h3><ul>${p.design.map(d=>`<li>${d}</li>`).join('')}</ul>
+    <h3>트러블슈팅</h3>
+    <table class="tbl"><thead><tr><th>Issue</th><th>Cause</th><th>Solution</th></tr></thead>
+    <tbody>${p.trouble.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('')}</tbody></table>
+    <h3>결과 및 고찰</h3><ul>${p.result.map(r=>`<li>${r}</li>`).join('')}</ul>`;
+  modal.classList.add('open'); document.body.style.overflow='hidden';
+  document.getElementById('mClose').focus();
+}
+function close(){ modal.classList.remove('open'); document.body.style.overflow=''; if(last) last.focus(); }
+grid.addEventListener('click',e=>{const c=e.target.closest('.pcard[data-i]'); if(c) open(+c.dataset.i);});
+document.getElementById('mClose').addEventListener('click',close);
+modal.addEventListener('click',e=>{if(e.target===modal) close();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open')) close();});
+
+/* 스크롤 등장 */
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
