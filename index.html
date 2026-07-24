@@ -4,35 +4,36 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>박지현 | Portfolio</title>
-<meta name="description" content="임베디드 SW / 펌웨어 엔지니어 박지현 포트폴리오">
+<meta name="description" content="임베디드 SW · 펌웨어 · BSP 개발자 박지현 포트폴리오">
 
 <!--
  ══════════════════════════════════════════════════════════
-  채워 넣을 곳은 class="fill" (연한 점선 밑줄) 로 표시했습니다.
-  값을 넣고 class="fill" 만 지우면 됩니다.
-
-   1) 프로필 사진 : ./images/profile.jpg  (3:4 비율 권장)
-   2) 프로젝트 6칸 중 4칸만 채워져 있습니다 → PROJECTS 배열에 추가
-   3) 프로젝트 수행기간 / GitHub 링크
-   4) 교육과정 상세 설명 2건
-   5) 포트폴리오 PDF : ./file/박지현_포트폴리오.pdf
+  1) 프로필 사진 : ./images/profile.jpg  (3:4 비율 권장)
+  2) 포트폴리오 PDF : ./file/박지현_포트폴리오.pdf
+  3) GitHub 주소 : 하단 footer의 GitHub 링크 href="#" 를 실제 주소로 교체
  ══════════════════════════════════════════════════════════
 -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --bg:#FFFFFF;
-  --bg-soft:#F7F8FA;
-  --ink:#15181D;
-  --ink-2:#565D68;
-  --ink-3:#8C939C;
-  --line:#E5E8EC;
-  --navy:#14355F;
-  --navy-lt:#EAF0F8;
+  --bg-soft:#F2F5F9;
+  --ink:#0E1116;      /* 본문 핵심 — 거의 검정 */
+  --ink-2:#2E3640;    /* 보조 본문 — 충분히 진한 회색 */
+  --ink-3:#5A6472;    /* 라벨/메타 — 읽히는 회색 */
+  --line:#D7DDE5;
+  --navy:#0E7490;     /* jewel teal — 단색 강조(가독성용) */
+  --navy-2:#0B5D74;
+  --navy-lt:#E1F2F5;
+  --g1:#4338CA;       /* indigo */
+  --g2:#0E7490;       /* teal */
+  --g3:#059669;       /* emerald */
+  --grad:linear-gradient(120deg,#4338CA 0%,#0E7490 52%,#059669 100%);
+  --grad-deep:linear-gradient(120deg,#3B32B8 0%,#0E7490 50%,#047857 100%);
   --maxw:1080px;
   --sans:'Noto Sans KR','Inter',-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
   --en:'Inter','Noto Sans KR',sans-serif;
@@ -41,159 +42,163 @@
 html{scroll-behavior:smooth}
 body{
   margin:0;background:var(--bg);color:var(--ink);
-  font-family:var(--sans);font-weight:400;line-height:1.75;
-  font-size:15px;-webkit-font-smoothing:antialiased;
+  font-family:var(--sans);font-weight:400;line-height:1.72;
+  font-size:17px;-webkit-font-smoothing:antialiased;
+  letter-spacing:-.002em;
 }
-a{color:var(--navy);text-decoration:none}
+a{color:var(--navy);text-decoration:none;font-weight:600}
 a:hover{text-decoration:underline;text-underline-offset:3px}
 :focus-visible{outline:2px solid var(--navy);outline-offset:3px}
 img{max-width:100%;display:block}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
 .skip{position:absolute;left:-999px}
 .skip:focus{left:16px;top:16px;background:var(--navy);color:#fff;padding:10px 14px;z-index:99}
-.fill{
-  color:var(--ink-3);border-bottom:1px dotted var(--ink-3);
-  font-size:.94em;
-}
+strong,b{font-weight:700;color:var(--ink)}
 
 /* ───── header ───── */
-.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.top__in{display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{font-family:var(--en);font-weight:800;font-size:16px;letter-spacing:-.01em;color:var(--ink)}
-.menu{display:flex;gap:26px}
-.menu a{font-family:var(--en);font-size:13.5px;font-weight:500;color:var(--ink-2)}
+.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top__in{display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{font-family:var(--en);font-weight:900;font-size:18px;letter-spacing:-.01em;color:var(--ink)}
+.menu{display:flex;gap:28px}
+.menu a{font-family:var(--en);font-size:14.5px;font-weight:600;color:var(--ink-2)}
 .menu a:hover{color:var(--navy);text-decoration:none}
-@media(max-width:760px){.menu{gap:14px}.menu a{font-size:12px}}
+@media(max-width:760px){.menu{gap:15px}.menu a{font-size:12.5px}}
 @media(max-width:520px){.menu a.opt{display:none}}
 
 /* ───── hero ───── */
-.hero{padding:110px 0 120px}
+.hero{padding:118px 0 124px}
 .hero__eyebrow{
-  font-family:var(--en);font-size:13px;font-weight:600;letter-spacing:.12em;
+  font-family:var(--en);font-size:14px;font-weight:700;letter-spacing:.14em;
   text-transform:uppercase;color:var(--navy);margin:0 0 22px
 }
 .hero h1{
-  font-family:var(--en);font-weight:800;
-  font-size:clamp(46px,8.5vw,88px);line-height:1.02;letter-spacing:-.03em;
-  margin:0 0 26px;color:var(--ink)
+  font-family:var(--en);font-weight:900;
+  font-size:clamp(50px,9vw,94px);line-height:1.0;letter-spacing:-.035em;
+  margin:0 0 28px;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:var(--g1)
 }
 .hero h1 span{display:block}
-.hero__sub{font-size:17px;color:var(--ink-2);margin:0 0 38px;font-weight:300}
-.hero__sub b{font-weight:500;color:var(--ink)}
+.hero__sub{font-size:21px;color:var(--ink-2);margin:0 0 40px;font-weight:500;line-height:1.5}
+.hero__sub b{font-weight:800;color:var(--ink)}
 .btn{
-  display:inline-block;font-family:var(--en);font-size:14px;font-weight:600;
-  padding:13px 26px;border-radius:2px;border:1px solid var(--navy);
-  background:var(--navy);color:#fff;cursor:pointer;transition:.18s
+  display:inline-block;font-family:var(--en);font-size:15px;font-weight:700;
+  padding:15px 30px;border-radius:3px;border:0;
+  background:var(--grad-deep);color:#fff;cursor:pointer;transition:.2s;
+  box-shadow:0 4px 14px rgba(14,116,144,.30)
 }
-.btn:hover{background:#0D2544;border-color:#0D2544;text-decoration:none;color:#fff}
-.btn--out{background:transparent;color:var(--navy)}
-.btn--out:hover{background:var(--navy-lt);color:var(--navy)}
+.btn:hover{filter:brightness(1.08);text-decoration:none;color:#fff;transform:translateY(-1px);box-shadow:0 7px 22px rgba(14,116,144,.40)}
+.btn--out{background:transparent;color:var(--navy);border:2px solid var(--navy);padding:13px 28px;box-shadow:none}
+.btn--out:hover{background:var(--navy-lt);color:var(--navy-2);filter:none;transform:translateY(-1px)}
 
 /* ───── section ───── */
-.sec{padding:96px 0;border-top:1px solid var(--line)}
+.sec{padding:100px 0;border-top:1px solid var(--line)}
 .sec--soft{background:var(--bg-soft)}
-.sec__head{margin-bottom:44px}
+.sec__head{margin-bottom:48px}
 .sec__label{
-  font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--navy);margin:0 0 10px
+  font-family:var(--en);font-size:13px;font-weight:700;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--navy);margin:0 0 12px
 }
-.sec__title{font-family:var(--en);font-size:32px;font-weight:800;letter-spacing:-.02em;margin:0;line-height:1.2}
-.sec__note{font-size:13.5px;color:var(--ink-3);margin:10px 0 0}
+.sec__title{font-family:var(--en);font-size:clamp(32px,5vw,42px);font-weight:900;letter-spacing:-.025em;margin:0;line-height:1.15;color:var(--ink)}
+.sec__note{font-size:15px;color:var(--ink-2);margin:14px 0 0;font-weight:500}
 
 /* ───── about ───── */
-.about{display:grid;grid-template-columns:260px 1fr;gap:56px;align-items:start}
-.photo{border:1px solid var(--line);border-radius:3px;overflow:hidden;background:var(--bg-soft)}
+.about{display:block}
+.photo{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--bg-soft)}
 .photo img{width:100%;aspect-ratio:3/4;object-fit:cover}
 .photo--empty{
   aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;
-  text-align:center;padding:18px;border-style:dashed;
-  font-family:var(--en);font-size:12px;color:var(--ink-3);line-height:1.6
+  text-align:center;padding:18px;border:2px dashed var(--line);border-radius:4px;
+  font-family:var(--en);font-size:13px;font-weight:600;color:var(--ink-3);line-height:1.7
 }
-.info{margin:0;border-top:1px solid var(--ink)}
-.info__row{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:14px 2px;border-bottom:1px solid var(--line)}
-.info__k{font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:0;padding-top:3px}
-.info__v{margin:0;font-size:15px}
-@media(max-width:760px){.about{grid-template-columns:1fr;gap:32px}.photo{max-width:220px}}
+.info{margin:0;max-width:680px;border-top:2px solid var(--ink)}
+.info__row{display:grid;grid-template-columns:132px 1fr;gap:16px;padding:16px 2px;border-bottom:1px solid var(--line)}
+.info__k{font-family:var(--en);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin:0;padding-top:3px}
+.info__v{margin:0;font-size:17px;font-weight:500;color:var(--ink)}
+.info__v b{font-weight:800}
+@media(max-width:760px){.info{max-width:100%}}
 @media(max-width:520px){.info__row{grid-template-columns:1fr;gap:2px}}
 
 /* ───── projects ───── */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px}
 .pcard{
-  border:1px solid var(--line);border-radius:3px;background:#fff;
+  border:1px solid var(--line);border-radius:4px;background:#fff;
   text-align:left;font:inherit;color:inherit;cursor:pointer;padding:0;
   display:flex;flex-direction:column;transition:.2s
 }
-.pcard:hover{border-color:var(--navy);box-shadow:0 6px 22px rgba(20,53,95,.10);transform:translateY(-2px)}
+.pcard:hover{border-color:var(--navy);box-shadow:0 8px 26px rgba(18,58,107,.13);transform:translateY(-3px)}
 .pcard__strip{
-  background:var(--bg-soft);border-bottom:1px solid var(--line);
-  padding:12px 20px;font-family:var(--en);font-size:11.5px;font-weight:500;
-  letter-spacing:.04em;color:var(--ink-2);
+  background:var(--grad);border-bottom:0;
+  padding:13px 20px;font-family:var(--en);font-size:12.5px;font-weight:600;
+  letter-spacing:.02em;color:#F1FCFD;
   display:flex;justify-content:space-between;align-items:center;gap:10px
 }
-.badge{font-size:10.5px;font-weight:600;color:var(--navy);background:var(--navy-lt);padding:2px 8px;border-radius:2px;white-space:nowrap}
-.pcard__body{padding:20px;display:flex;flex-direction:column;flex:1}
-.pcard__date{font-family:var(--en);font-size:12px;color:var(--ink-3);margin:0 0 8px}
-.pcard__title{font-size:18px;font-weight:700;margin:0 0 10px;line-height:1.4}
-.pcard__sum{font-size:13.5px;color:var(--ink-2);font-weight:300;margin:0 0 18px;flex:1}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{font-family:var(--en);font-size:11px;font-weight:500;padding:3px 9px;border:1px solid var(--line);border-radius:2px;color:var(--ink-2);background:#fff}
-.chip--on{border-color:var(--navy);color:var(--navy);background:var(--navy-lt)}
-.pcard--empty{
-  border-style:dashed;cursor:default;align-items:center;justify-content:center;
-  min-height:200px;color:var(--ink-3);font-size:13px;text-align:center;padding:24px
-}
-.pcard--empty:hover{transform:none;box-shadow:none;border-color:var(--line)}
+.badge{font-size:11px;font-weight:800;color:var(--navy);background:#fff;padding:3px 9px;border-radius:3px;white-space:nowrap;letter-spacing:.02em}
+.pcard__body{padding:22px;display:flex;flex-direction:column;flex:1}
+.pcard__date{font-family:var(--en);font-size:13px;font-weight:600;color:var(--ink-3);margin:0 0 10px}
+.pcard__title{font-size:21px;font-weight:800;margin:0 0 12px;line-height:1.35;color:var(--ink);letter-spacing:-.01em}
+.pcard__sum{font-size:15px;color:var(--ink-2);font-weight:500;margin:0 0 20px;flex:1;line-height:1.65}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{font-family:var(--en);font-size:12px;font-weight:600;padding:4px 10px;border:1px solid var(--line);border-radius:3px;color:var(--ink-2);background:#fff}
+.chip--on{border-color:var(--navy);color:#fff;background:var(--navy);font-weight:700}
+.pcard__more{font-family:var(--en);font-size:12.5px;font-weight:700;color:var(--navy);margin:16px 0 0;display:flex;align-items:center;gap:5px}
 
 /* ───── skills ───── */
-.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px}
-.sk h3{font-family:var(--en);font-size:17px;font-weight:700;margin:0 0 18px;padding-bottom:12px;border-bottom:2px solid var(--ink)}
-.sk h4{font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:20px 0 10px}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px}
+.sk h3{font-family:var(--en);font-size:19px;font-weight:800;margin:0 0 20px;padding-bottom:14px;border-bottom:2px solid var(--ink);color:var(--ink)}
+.sk h4{font-family:var(--en);font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:22px 0 12px}
 .sk h4:first-of-type{margin-top:0}
 
 /* ───── awards / careers ───── */
-.tl{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
-.tl li{display:grid;grid-template-columns:180px 1fr;gap:24px;padding:20px 2px;border-bottom:1px solid var(--line)}
-.tl time{font-family:var(--en);font-size:13px;font-weight:500;color:var(--ink-3);padding-top:2px}
-.tl h3{font-size:16.5px;font-weight:700;margin:0 0 4px;line-height:1.5}
-.tl p{margin:0;font-size:13.5px;color:var(--ink-2);font-weight:300}
-.prize{display:inline-block;font-family:var(--en);font-size:11.5px;font-weight:600;color:var(--navy);background:var(--navy-lt);padding:2px 9px;border-radius:2px;margin-left:6px}
-@media(max-width:600px){.tl li{grid-template-columns:1fr;gap:6px}}
+.tl{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.tl li{display:grid;grid-template-columns:190px 1fr;gap:26px;padding:24px 2px;border-bottom:1px solid var(--line)}
+.tl time{font-family:var(--en);font-size:15px;font-weight:700;color:var(--navy);padding-top:2px}
+.tl h3{font-size:18.5px;font-weight:800;margin:0 0 8px;line-height:1.5;color:var(--ink)}
+.tl p{margin:0;font-size:15.5px;color:var(--ink-2);font-weight:500;line-height:1.7}
+.tl p b{font-weight:800;color:var(--ink)}
+.dashlist{color:var(--ink-2)}
+.prize{display:inline-block;font-family:var(--en);font-size:12.5px;font-weight:800;color:#fff;background:var(--grad-deep);padding:3px 11px;border-radius:3px;margin-left:10px;vertical-align:middle;letter-spacing:.02em;box-shadow:0 2px 9px rgba(67,56,202,.28)}
+.hours{display:inline-block;font-family:var(--en);font-size:12px;font-weight:700;color:var(--navy);background:var(--navy-lt);padding:2px 9px;border-radius:3px;margin-left:8px;vertical-align:middle}
+@media(max-width:600px){.tl li{grid-template-columns:1fr;gap:8px}}
 
 /* ───── footer ───── */
-.foot{border-top:1px solid var(--line);background:var(--bg-soft);padding:64px 0 48px}
+.foot{border-top:1px solid var(--line);background:var(--bg-soft);padding:70px 0 52px}
 .foot__grid{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
-.foot__mail{font-family:var(--en);font-size:clamp(24px,4.5vw,38px);font-weight:800;letter-spacing:-.02em;color:var(--ink)}
-.foot__mail a{color:inherit}
-.foot__copy{font-family:var(--en);font-size:12.5px;color:var(--ink-3);margin:40px 0 0}
+.foot__mail{font-family:var(--en);font-size:clamp(26px,4.5vw,40px);font-weight:900;letter-spacing:-.02em}
+.foot__mail a{color:var(--g2);font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.foot__copy{font-family:var(--en);font-size:13px;color:var(--ink-3);margin:44px 0 0;font-weight:500}
 
 /* ───── modal ───── */
-.modal{position:fixed;inset:0;z-index:80;display:none;background:rgba(21,24,29,.5);padding:20px;overflow-y:auto}
+.modal{position:fixed;inset:0;z-index:80;display:none;background:rgba(14,17,22,.55);padding:20px;overflow-y:auto}
 .modal.open{display:block}
-.sheet{max-width:860px;margin:40px auto;background:#fff;border-radius:4px;box-shadow:0 20px 60px rgba(0,0,0,.25)}
-.sheet__top{position:sticky;top:0;background:#fff;z-index:2;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:26px 32px 18px;border-bottom:1px solid var(--line);border-radius:4px 4px 0 0}
-.sheet__top p{font-family:var(--en);font-size:12.5px;color:var(--ink-3);margin:0 0 8px}
-.sheet__top h2{font-size:23px;font-weight:700;margin:0;line-height:1.35}
-.x{font-family:var(--en);font-size:13px;font-weight:600;background:none;border:1px solid var(--line);border-radius:2px;padding:7px 13px;cursor:pointer;color:var(--ink-2);flex-shrink:0}
+.sheet{max-width:880px;margin:40px auto;background:#fff;border-radius:5px;box-shadow:0 20px 60px rgba(0,0,0,.28)}
+.sheet__top{position:sticky;top:0;background:#fff;z-index:2;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:28px 34px 20px;border-bottom:1px solid var(--line);border-radius:5px 5px 0 0}
+.sheet__top p{font-family:var(--en);font-size:13.5px;color:var(--ink-3);margin:0 0 8px;font-weight:600}
+.sheet__top h2{font-size:25px;font-weight:900;margin:0;line-height:1.32;color:var(--ink);letter-spacing:-.015em}
+.x{font-family:var(--en);font-size:14px;font-weight:700;background:none;border:1.5px solid var(--line);border-radius:3px;padding:8px 14px;cursor:pointer;color:var(--ink-2);flex-shrink:0}
 .x:hover{border-color:var(--navy);color:var(--navy)}
-.sheet__body{padding:6px 32px 40px}
-.sheet__body h3{font-family:var(--en);font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin:32px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
-.sheet__body p{font-size:14.5px;margin:0 0 12px;font-weight:300}
-.sheet__body ul{margin:0;padding-left:19px;font-size:14px;font-weight:300}
-.sheet__body li{margin-bottom:9px}
-.sheet__body b{font-weight:600}
-.sheet__body code{font-family:var(--en);font-size:12.5px;background:var(--bg-soft);padding:1px 5px;border-radius:2px}
-.tbl{width:100%;border-collapse:collapse;font-size:13.5px;font-weight:300}
-.tbl th{font-family:var(--en);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);text-align:left;padding:8px 12px;border-bottom:1px solid var(--ink)}
-.tbl td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top}
-.tbl td:first-child{width:30%;font-weight:500;color:var(--ink)}
-.tbl td:last-child{width:38%;color:var(--navy)}
+.sheet__body{padding:8px 34px 44px}
+.sheet__body h3{font-family:var(--en);font-size:14px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);margin:34px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--navy-lt)}
+.sheet__body p{font-size:16px;margin:0 0 12px;font-weight:500;line-height:1.72;color:var(--ink-2)}
+.sheet__body ul{margin:0;padding-left:20px;font-size:15.5px;font-weight:500;color:var(--ink-2)}
+.sheet__body li{margin-bottom:11px;line-height:1.68}
+.sheet__body b{font-weight:800;color:var(--ink)}
+.sheet__body code{font-family:var(--en);font-size:13.5px;font-weight:600;background:var(--navy-lt);color:var(--navy-2);padding:1px 6px;border-radius:3px}
+.tbl{width:100%;border-collapse:collapse;font-size:14.5px;font-weight:500}
+.tbl th{font-family:var(--en);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);text-align:left;padding:9px 12px;border-bottom:2px solid var(--ink)}
+.tbl td{padding:13px 12px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink-2)}
+.tbl td:first-child{width:30%;font-weight:700;color:var(--ink)}
+.tbl td:last-child{width:38%;color:var(--navy);font-weight:600}
 @media(max-width:620px){
   .tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:auto}
   .tbl thead{display:none}
-  .tbl tr{border-bottom:1px solid var(--ink);padding:12px 0}
-  .tbl td{border:none;padding:3px 0;width:auto!important}
+  .tbl tr{border-bottom:2px solid var(--ink);padding:12px 0}
+  .tbl td{border:none;padding:4px 0;width:auto!important}
+  .tbl td:first-child::before{content:'▸ Issue — ';color:var(--ink-3);font-weight:700}
+  .tbl td:nth-child(2)::before{content:'원인 — ';color:var(--ink-3);font-weight:700}
+  .tbl td:last-child::before{content:'해결 — ';color:var(--ink-3);font-weight:700}
 }
-.rv{opacity:0;transform:translateY(12px)}
+.rv{opacity:0;transform:translateY(14px)}
 .rv.in{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease}
 @media(prefers-reduced-motion:reduce){
   *{transition:none!important;animation:none!important}
@@ -224,7 +229,7 @@ img{max-width:100%;display:block}
 <section class="hero wrap" id="home">
   <p class="hero__eyebrow">Portfolio</p>
   <h1><span>Embedded</span><span>Engineer</span></h1>
-  <p class="hero__sub"><b>임베디드 SW / 펌웨어 엔지니어 박지현</b>입니다.</p>
+  <p class="hero__sub"><b>임베디드 SW · 펌웨어 · BSP 개발자 박지현</b>입니다.</p>
   <a class="btn" href="#projects">View Latest Works</a>
 </section>
 
@@ -236,18 +241,13 @@ img{max-width:100%;display:block}
       <h2 class="sec__title">About Me</h2>
     </div>
     <div class="about">
-      <figure class="photo" style="margin:0">
-        <img src="./images/profile.jpg" alt="박지현 프로필 사진"
-             onerror="this.parentNode.innerHTML='&lt;div class=\'photo--empty\'&gt;프로필 사진을&lt;br&gt;./images/profile.jpg&lt;br&gt;경로에 넣어주세요&lt;/div&gt;'">
-      </figure>
       <dl class="info">
-        <div class="info__row"><dt class="info__k">Name</dt><dd class="info__v">박지현</dd></div>
+        <div class="info__row"><dt class="info__k">Name</dt><dd class="info__v"><b>박지현</b></dd></div>
         <div class="info__row"><dt class="info__k">Email</dt><dd class="info__v"><a href="mailto:nice121223@gmail.com">nice121223@gmail.com</a></dd></div>
-        <div class="info__row"><dt class="info__k">Birth date</dt><dd class="info__v">00. 01. 04</dd></div>
-        <div class="info__row"><dt class="info__k">Language</dt><dd class="info__v">OPIc IM</dd></div>
+        <div class="info__row"><dt class="info__k">Birth</dt><dd class="info__v">2000. 01. 04</dd></div>
         <div class="info__row"><dt class="info__k">Location</dt><dd class="info__v">경기도 광명시</dd></div>
         <div class="info__row"><dt class="info__k">Education</dt><dd class="info__v">상명대학교 전자공학과</dd></div>
-        <div class="info__row"><dt class="info__k">Interest</dt><dd class="info__v">임베디드 펌웨어 · 디바이스 드라이버 / BSP</dd></div>
+        <div class="info__row"><dt class="info__k">Interest</dt><dd class="info__v"><b>임베디드 SW · 펌웨어 · BSP 개발</b></dd></div>
       </dl>
     </div>
   </div>
@@ -262,7 +262,7 @@ img{max-width:100%;display:block}
       <p class="sec__note">카드를 누르면 담당 역할과 트러블슈팅까지 확인할 수 있습니다.</p>
     </div>
     <div class="grid" id="grid"></div>
-    <p style="margin-top:32px">
+    <p style="margin-top:34px">
       <a class="btn btn--out" href="./file/박지현_포트폴리오.pdf" download>더 자세한 프로젝트를 보고 싶다면? (PDF)</a>
     </p>
   </div>
@@ -289,18 +289,19 @@ img{max-width:100%;display:block}
         </div>
       </div>
       <div class="sk">
-        <h3>Platforms &amp; Development</h3>
+        <h3>Platforms &amp; Tools</h3>
         <h4>Main Skills</h4>
         <div class="chips">
-          <span class="chip chip--on">Vivado</span>
-          <span class="chip chip--on">Linux</span>
           <span class="chip chip--on">STM32 CubeIDE</span>
           <span class="chip chip--on">PlatformIO</span>
+          <span class="chip chip--on">Linux</span>
+          <span class="chip chip--on">Vivado</span>
         </div>
         <h4>Experience</h4>
         <div class="chips">
           <span class="chip">Synopsys VCS</span>
           <span class="chip">Verdi</span>
+          <span class="chip">Design Compiler</span>
           <span class="chip">Quartus</span>
           <span class="chip">ModelSim</span>
         </div>
@@ -320,15 +321,15 @@ img{max-width:100%;display:block}
       <li>
         <time>2025. 02.</time>
         <div>
-          <h3>한국 무라타 전자 아이디어 공모전<span class="prize">최우수상</span></h3>
-          <p class="fill">수상 주제 한 줄 (예: OO 센서를 활용한 OO 시스템)</p>
+          <h3>한국무라타전자 아이디어 공모전<span class="prize">최우수상</span></h3>
+          <p><b>IMU · 근전도(EMG) 센서 기반 손목 착용형 틱 증상 감지 웨어러블 기기</b> — 얼굴, 목 등 다양한 부위의 틱 증상을 손목의 IMU·EMG 신호와 머신러닝 패턴 분석으로 간접 추정하는 새로운 웨어러블 기기 구상안</p>
         </div>
       </li>
       <li>
         <time>2025. 01.</time>
         <div>
           <h3>상명대학교 오름교육페스티벌<span class="prize">장려상</span></h3>
-          <p class="fill">수상 주제 한 줄</p>
+          <p><b>Arduino 조도 센서 기반 카페 무드 시스템</b> — 주변 밝기를 조도 센서로 감지해, 공간 분위기에 맞춰 재생 음악의 무드를 자동으로 바꿔 주는 시스템을 구현</p>
         </div>
       </li>
     </ol>
@@ -344,25 +345,33 @@ img{max-width:100%;display:block}
     </div>
     <ol class="tl">
       <li>
-        <time>2026.02. – 2026.08.</time>
+        <time>2026. 02. – 2026. 08.</time>
         <div>
-          <h3>[대한상공회의소 서울기술교육센터] AI 시스템 반도체 SW 개발자 교육 이수 중 (980H)</h3>
-          <p class="fill">이수 내용 한 줄 (예: ARM Cortex-M 펌웨어 · RTOS · 리눅스 디바이스 드라이버 · RTL 설계)</p>
+          <h3>[대한상공회의소 서울기술교육센터] AI 시스템 반도체 SW 개발자 교육 이수 중<span class="hours">980H</span></h3>
+          <p class="dashlist">
+            – <b>ARM Cortex-M 기반 실시간 제어 펌웨어</b> 설계 · RTOS 태스크 스케줄링<br>
+            – <b>임베디드 리눅스 디바이스 드라이버</b> 구현 (app/dev 계층 분리 · ioctl 제어)<br>
+            – <b>Verilog HDL 기반 RTL 설계</b> 및 FPGA 시스템 검증
+          </p>
         </div>
       </li>
       <li>
-        <time>2025.08. – 2025.08.</time>
+        <time>2024. 07.</time>
         <div>
-          <h3>[한국기술교육대학교] 반도체 공정 기술 실습 교육 (40H)</h3>
-          <p class="fill">이수 내용 한 줄 (예: 포토·식각·증착 공정 실습)</p>
+          <h3>[한국기술교육대학교] 반도체 공정 실습 교육<span class="hours">40H</span></h3>
+          <p class="dashlist">
+            – 산화·막증착·포토·식각 등 주요 반도체 공정 이론 및 프로세스 학습<br>
+            – <b>공정 시뮬레이션 실습</b>으로 Diode·MOSFET 소자 제조 공정 이해<br>
+            – <b>Class 1,000 클린룸</b>에서 막형성·포토식각 장비 활용 실무 실습
+          </p>
         </div>
       </li>
       <li>
-        <time>2024.03. – 2027.08.</time>
+        <time>2024. 03. – 2027. 02.</time>
         <div><h3>상명대학교 전자공학과 졸업 예정</h3></div>
       </li>
       <li>
-        <time>2015.03. – 2018.02.</time>
+        <time>2015. 03. – 2018. 02.</time>
         <div><h3>진성고등학교 졸업</h3></div>
       </li>
     </ol>
@@ -375,7 +384,7 @@ img{max-width:100%;display:block}
   <div class="wrap">
     <div class="foot__grid">
       <div>
-        <p class="sec__label" style="margin-bottom:12px">Contact</p>
+        <p class="sec__label" style="margin-bottom:14px">Contact</p>
         <div class="foot__mail"><a href="mailto:nice121223@gmail.com">nice121223@gmail.com</a></div>
       </div>
       <div class="chips">
@@ -403,107 +412,85 @@ img{max-width:100%;display:block}
    ══════════════════════════════════════════════════ */
 const PROJECTS=[
 {
-  period:'<span class="fill">2026.MM.DD. – 2026.MM.DD.</span>',
-  platform:'STM32F411 ×2 · ESP32-CAM',
-  badge:'Firmware',
+  period:'2026. 04. 22. – 2026. 05. 10.',
+  platform:'ESP32-CAM · STM32F411 (Dual-MCU)',
+  badge:'Firmware · Vision',
   title:'3축 능동형 스마트 짐벌 및 객체 추적 시스템',
-  summary:'영상 처리와 자세 제어를 별도 MCU로 분리해, 진동 환경에서도 모터 제어 주기 10ms를 놓치지 않고 타겟을 추적하는 짐벌',
-  chips:['STM32F411','ESP32-CAM','FreeRTOS','SPI + DMA','PID'],
-  overview:'단일 MCU 구조에서는 무거운 비전 연산이 PID 제어 루프를 지연시켜 짐벌이 발진하는 병목이 있었습니다. 영상 처리 · 렌더링 · 자세 제어를 물리적으로 분리한 분산 처리 아키텍처(Dual-MCU + Edge Vision)를 설계해, 각 태스크가 독립적인 실시간성을 보장받도록 했습니다.',
-  role:'[Board A] 비전 데이터 라우팅 &amp; 디스플레이 파이프라인 전담 설계·구현',
+  summary:'영상 처리를 독립 엣지 모듈(ESP32-CAM)에 전담시켜, 무거운 비전 연산에도 모터 제어 주기가 밀리지 않도록 설계한 분산 처리 짐벌. 좌표만 뽑아 SPI로 전송합니다.',
+  chips:['ESP32-CAM','RGB565·HSV','RLE 군집화','Kalman Filter','SPI(Master)','PSRAM'],
+  overview:'단일 MCU에서 비전 연산과 모터 제어를 함께 수행하면 연산 부하로 제어 주기가 밀리는 병목이 있었습니다. 영상 캡처부터 좌표 산출까지의 <b>비전 처리를 독립된 엣지 모듈(ESP32-CAM)에 전담</b>시켜, 모터 제어용 MCU(STM32)의 연산 부담을 원천 차단했습니다. 처리 파이프라인은 영상 캡처(RGB565) → HSV 변환 → 빨강 판별 → RLE 군집화 → 칼만 필터 → SPI 송신으로 구성됩니다.',
+  role:'<b>ESP32-CAM(Vision Edge) 펌웨어 전담</b> — 색상 기반 객체 추적 알고리즘 설계, 임베디드 자원 최적화, Board A 연동 SPI 패킷 설계·구현',
   design:[
-    '<b>도메인 분리</b> — 160×120 렌더링은 버스·CPU를 크게 점유합니다. 시각화·중계를 Board A로 떼어내 Board B가 제어 연산에만 집중하도록 병목을 차단했습니다.',
-    '<b>SPI DMA 논블로킹 렌더링</b> — CPU가 픽셀 전송을 기다리지 않도록 DMA로 백그라운드 출력하고, 전송 완료 인터럽트와 세마포어를 결합해 Polling 대기 없는 구조로 구현했습니다.',
-    '<b>핑퐁(더블) 버퍼</b> — 한쪽은 DMA 수신, 다른 쪽은 렌더링을 병렬 처리해 테어링을 제거했습니다.',
-    '<b>패킷 무결성 검사</b> — 헤더/푸터 매직 넘버로 1바이트 밀림을 검출해 깨진 프레임을 폐기하고 다음 프레임에서 자동 재동기화합니다.',
-    '<b>좌표만 중계</b> — 38,409 B 패킷 중 모터 제어에 필요한 좌표·감지 플래그 7 B만 추출해 UART로 Board B에 전달합니다.'
+    '<b>해상도·픽셀 포맷 선정 (SPI 대역폭 Trade-off)</b> — 내부 SRAM만으로는 영상 처리가 불가해 외부 PSRAM에 프레임버퍼를 할당했습니다. QVGA·VGA는 전송 시간 초과·PSRAM 초과로 탈락, <b>RGB565(QQVGA) 38.4 KB</b>로 전송 15 ms · 20 fps를 확보했습니다.',
+    '<b>HSV 색상 판별 + 정수 최적화</b> — RGB는 조명 변화에 취약해 색상(H)·밝기(V)를 분리한 HSV를 채택하고, 빨강은 색상환 양 끝이므로 두 구간을 OR로 체크(H≤10 또는 H≥170)했습니다. 매 프레임 19,200픽셀의 float 연산이 백그라운드 WiFi와 코어를 다투므로 <b>정수 비례식으로 대체</b>했습니다.',
+    '<b>RLE 군집화 + 칼만 필터</b> — 재귀 DFS/BFS는 스택(8 KB) 초과로 즉시 크래시하므로 메모리 복잡도 O(1)의 1D 라인 스캔(RLE)을 채택하고, 연속 2픽셀 이상만 유효 처리해 고립 노이즈를 제거했습니다. 좌표 노이즈(±5px)를 서보에 직접 전달하면 진동이 생겨 <b>1차원 칼만 필터</b>로 안정화했습니다.',
+    '<b>SPI 패킷 설계 (헤더/푸터 동기화)</b> — 매직 넘버를 매 프레임 검증해 깨진 패킷은 폐기하고 다음 프레임에서 자동 재동기화합니다. 8bit 버스에 맞춰 16bit 좌표를 상·하위 바이트로 분할 전송해, 향후 해상도 상향 시에도 패킷 구조 변경이 없도록 설계했습니다.'
   ],
   trouble:[
-    ['첫 프레임만 뜨고 영상 갱신이 멈춤','UART 115200 bps로 38.4 KB 전송 시 약 3초 소요 — 통신 병목','고속 4-Wire SPI로 인터페이스 전면 교체'],
-    ['화면이 위→아래로 찢어짐 (Tearing)','수신(Rx)·렌더링(Tx)이 단일 버퍼를 경합','핑퐁(더블) 버퍼 도입 — 수신/출력 병렬화'],
-    ['렌더링 미세 프레임 지연(잔렉)','osDelay Polling 대기로 불필요한 Idle 누적','세마포어 + 전송완료 인터럽트 결합'],
-    ['빌드 시 RAM Overflow','76 KB 버퍼 2개가 SRAM·기본 Heap 한도 초과','TOTAL_HEAP_SIZE를 가용 한도에 맞춰 재산정'],
-    ['UART 통신이 전혀 동작하지 않음','스케줄러 시작 전 통신 로직 호출 → OS 초기화 순서 문제','메인 로직을 RTOS 태스크 내부로 이관']
+    ['영상 처리가 내부 SRAM만으로 불가','SRAM 520 KB · 스택 8 KB의 자원 한계','외부 PSRAM에 프레임버퍼 할당 + O(1) RLE 채택'],
+    ['조명이 바뀌면 색 판별 실패','RGB 고정 임계값이 밝기 변화에 취약','HSV로 색상·밝기 분리, 빨강 두 구간 OR 판별'],
+    ['float 연산 중 영상 끊김','픽셀 float 연산이 백그라운드 WiFi와 코어 충돌','정수 비례식으로 대체 (판별 범위가 넓어 정밀도 불필요)'],
+    ['서보가 미세하게 떨림 (진동)','측정 좌표 노이즈 ±5px를 서보에 직접 전달','1차원 칼만 필터로 예측·측정값 융합 안정화'],
+    ['기동 시 영상·좌표가 뒤섞임','패킷 중간부터 읽어 프레임 경계가 어긋남','헤더/푸터 매직 넘버 검증 후 깨진 패킷 폐기·재동기화']
   ],
   result:[
-    '무거운 비전 연산에도 모터 제어 주기 <b>10 ms</b> 유지',
-    'ESP32 환경에서 <b>20 fps</b> 연속 추적 (정수 연산화 + 1D RLE 군집화)',
-    '테어링 제거 및 프레임 손실 시 자동 복구 확보'
+    '제한 자원(SRAM 520 KB / 스택 8 KB) 내 <b>QQVGA 20 fps</b> 실시간 추적 확보',
+    'RGB565 38.4 KB 패킷 <b>전송 15 ms</b> 달성으로 실시간성 확보',
+    'float→int 최적화·RLE 채택으로 WiFi 백그라운드와 충돌 없이 안정 동작',
+    '<b>비전 처리를 엣지로 물리 분리</b>하면 모터 제어 주기가 밀리지 않는다는 분산 처리 아키텍처의 효과를 확인'
   ]
 },
 {
-  period:'<span class="fill">2026.MM.DD. – 2026.MM.DD.</span>',
-  platform:'STM32F446RE · bare-metal',
-  badge:'진행 중',
-  title:'EV 충전 시스템 — 배터리 관리(BMS) 노드',
-  summary:'HAL 없이 레지스터를 직접 제어하는 4S 배터리 감시 노드. 고장을 판정한 뒤 100ms 이내에 CAN으로 충전 불허를 통보',
-  chips:['STM32F446RE','Bare-metal','bxCAN','INA226','ACS712'],
-  overview:'STM32는 전원을 직접 차단하지 않습니다. <b>안전 여부를 판단하고 그 결과를 CAN으로 통보</b>하는 것이 역할이며, 물리적 차단은 보호 보드와 EVSE 릴레이가 담당합니다. 이 경계를 명확히 두고 계측 → 판정 → 통보 경로의 지연을 설계 목표로 잡았습니다.',
-  role:'BMS 서브시스템 전담 — 계측 드라이버, 고장 판정 FSM, SOC 추정, CAN 통신',
+  period:'2026. 05. 29. – 2026. 06. 03.',
+  platform:'Arduino · Raspberry Pi · MariaDB',
+  badge:'IoT · Server',
+  title:'Smart Medicine Dispenser (스마트 알약 디스펜서)',
+  summary:'인증·처방 판단·DB를 역할별 클라이언트로 분리하고, 물리적 배출이 확인된 뒤에만 DB를 갱신하는 Fail-Safe 무인 의약품 배출 서버.',
+  chips:['Arduino','Raspberry Pi','TCP Socket','멀티클라이언트','FSM','MariaDB'],
+  overview:'사용자가 RFID·키패드로 UserID를 입력하면 라즈베리파이 IoT 서버가 DB 기반으로 처방 조건을 검증하고 서보모터로 약품을 배출하는 무인 시스템입니다. <b>배출부(STM32)와 인증 단말(Arduino)을 직접 연결하지 않고</b> 모든 명령을 서버가 중계해, 외부망과 하드웨어 제어부를 분리(물리 보안)했습니다. 처방 규칙을 코드가 아닌 <b>DB 테이블로 관리</b>해 재컴파일 없이 약품·나이·알러지·재고 조건을 바꿀 수 있습니다.',
+  role:'<b>Arduino 인증 단말 + 라즈베리파이 서버 전담</b> — DOC(처방 판단)·LOG(인증)·SQL(DB 게이트웨이) 클라이언트 설계·구현',
   design:[
-    '<b>단계별 브링업</b> — 단일 <code>BRINGUP_STAGE</code> 매크로(1~7)로 주변장치를 하나씩 살려가며 하드웨어를 점진 검증합니다.',
-    '<b>채널별 2점 캘리브레이션</b> — 분압 저항 편차를 채널마다 보정해 셀 전압 측정 오차를 줄였습니다.',
-    '<b>전류 교차 검증</b> — INA226(션트)와 ACS712(홀 소자)를 이중으로 읽어 단일 센서 고장을 검출합니다.',
-    '<b>bxCAN 루프백 우선 전략</b> — 원격 노드가 없으면 프레임이 ACK되지 않으므로, 루프백 모드로 프로토콜을 먼저 확정한 뒤 실선으로 옮겼습니다.',
-    '<b>100 / 500 / 1000 ms 슈퍼루프</b> — 주기별 태스크를 분리해 RTOS 없이 결정론적 실행 시간을 확보했습니다.'
+    '<b>멀티클라이언트 권한 분리</b> — TCP IoT 서버를 중심으로 앱·단말·배출·처방·인증·DB 클라이언트를 분리하고, 서버가 발신자 ID를 수신자 ID로 교체 포워딩하며 클라이언트별 접근 권한을 제한했습니다.',
+    '<b>처방 판단 FSM (DOC_client)</b> — 요청 수신 시 ① 알러지 → ② 24h 한도 → ③ 누적 복용량 → ④ 과용량 → ⑤ 나이 → ⑥ 중복 예약 순으로 검증해, 하나라도 위배되면 FAIL 코드를 반환하고 처방을 차단합니다. 청소년 오남용·과용량을 서버 단에서 원천 차단합니다.',
+    '<b>Fail-Safe 배출</b> — DB 변경은 STM32의 물리적 배출 완료(PICKUP_DONE) 신호를 받은 <b>이후에만</b> 수행합니다. 서보 오류(PICKUP_FAIL) 시 DB를 유지해 재시도가 가능하고, 재고·누적·예약의 무결성이 보존됩니다.',
+    '<b>Arduino 비블로킹 단말</b> — MFRC522로 카드 UID를 읽어 UserID에 매핑하고, <code>delay()</code>를 제거하고 <code>millis()</code> 타이머 기반으로 전환해 WiFiEsp 수신 버퍼 오버플로우를 방지했습니다.'
   ],
   trouble:[
-    ['CAN 송신이 계속 실패','원격 노드 부재로 프레임이 ACK되지 않음','루프백 모드로 프로토콜 검증 후, 호스트 SocketCAN 툴을 가상 EVSE로 사용'],
-    ['셀 전압 측정값이 채널마다 치우침','분압 저항 편차 및 ADC 오프셋','채널별 2점 캘리브레이션 계수를 산출해 코드에 반영']
+    ['배출에 실패해도 DB가 수령 완료로 기록','PICKUP 시도만으로 DB가 갱신됨','배출 성공(PICKUP_DONE) 수신 후에만 DB를 갱신하도록 수정'],
+    ['단말에 Server Timeout 반복','DB 왕복이 여러 클라이언트를 경유해 단말 대기 시간을 초과','doc_client·Arduino 응답 대기 시간을 상향해 왕복 지연 흡수']
   ],
   result:[
-    '고장 발생 후 <b>permit = 0 도달까지 100 ms 이내</b> — 호스트 CAN 툴 타임스탬프로 측정',
-    'EVSE 팀 보드 없이도 단독 검증이 가능한 호스트 측 테스트 환경 구축'
+    '알러지·나이·24h·누적·중복 등 <b>다중 처방 조건을 서버 단에서 자동 검증</b> 통과',
+    '배출 실패 시에도 DB 무결성을 보존해 재시도가 가능한 Fail-Safe 흐름 확보',
+    '역할별(DOC/LOG/SQL) <b>책임 분리 설계</b>로 디버깅과 보안이 강화됨을 체감',
+    '외부 입력단과 배출부를 서버로 격리하는 물리 보안 구조의 중요성을 학습'
   ]
 },
 {
-  period:'<span class="fill">2025.MM.DD. – 2025.MM.DD.</span>',
-  platform:'STM32F411RE · Arduino · RPi',
-  badge:'Firmware / IoT',
-  title:'Smart Medicine Dispenser',
-  summary:'연령·중복·누적한도 3중 검증을 서버에서 수행하고, 배출부(STM32)를 외부망과 분리한 24시 무인 의약품 배출 시스템',
-  chips:['STM32F411RE','TIM2 PWM','HC-06','Raspberry Pi','MariaDB'],
-  overview:'야간·휴일 의료 공백과 의약품 오남용을 함께 다루기 위해, 처방 판단은 게이트웨이(라즈베리파이)와 DB에서 수행하고 배출부는 외부망과 분리했습니다. 배출부가 직접 인터넷에 노출되지 않으므로 공격면이 줄어듭니다.',
-  role:'STM32 배출부 펌웨어 — 서보 3채널 PWM 제어, DHT11 환경 감시, BT 프로토콜 파싱',
-  design:[
-    '<b>서보 PWM</b> — TIM2 Prescaler 83 / Period 19999로 50 Hz를 만들고, 45°→0° 왕복 1회를 1알로 정의해 채널별 배출 수량을 제어합니다.',
-    '<b>ISR 최소화</b> — <code>HAL_UART_RxCpltCallback</code>에서는 플래그만 세우고, 문자열 파싱은 메인 루프에서 수행해 인터럽트 지연을 줄였습니다.',
-    '<b>비블로킹 처리</b> — 단말의 <code>delay()</code>를 제거하고 <code>millis()</code> 기반 타이머로 전환해 WiFi 수신 버퍼 오버플로우를 방지했습니다.',
-    '<b>환경 감시</b> — DHT11을 500 ms 주기로 읽어 28 ℃ 이상 FAN ON, 35 ℃ 이상 LCD 경고를 발생시킵니다.'
-  ],
-  trouble:[
-    ['알약 배출에 실패했는데 DB는 수령 완료로 기록','PICKUP 시도만으로 DB가 갱신되는 흐름','서보 동작 완료 후에만 PICKUP_DONE을 전송하도록 조건 변경'],
-    ['단말 LCD에 Server Timeout 반복','DB 왕복이 여러 클라이언트를 경유해 응답 대기 시간을 초과','왕복 지연을 흡수하도록 클라이언트/단말 타임아웃 재산정']
-  ],
-  result:[
-    '연령 제한 · 알러지 · 과다복용 · 중복 예약 등 <b>7종 시나리오 전수 검증 통과</b>',
-    'STM32 → BT → 게이트웨이 → DB → 웹 대시보드까지 전 구간 파이프라인 동작 확인'
-  ]
-},
-{
-  period:'<span class="fill">2025.MM.DD. – 2025.MM.DD.</span>',
-  platform:'Basys3 · Artix-7 XC7A35T',
+  period:'2026. 03.',
+  platform:'Basys3 · Artix-7 (Verilog HDL)',
   badge:'RTL Design',
   title:'Smart Air Handling Unit (스마트 공조기)',
-  summary:'센서 프로토콜을 MCU 펌웨어가 아닌 RTL FSM으로 직접 구현해, 타이밍 제약을 하드웨어 수준에서 다룬 통합 제어기',
-  chips:['Verilog HDL','Basys3','FSM','DS1302','Oscilloscope'],
-  overview:'DHT11(single-wire), DS1302(3-wire), UART를 단일 비트스트림 안에서 동시에 제어하는 공조기를 Verilog HDL로 설계했습니다. 프로토콜을 라이브러리에 맡기지 않고 FSM으로 직접 구현해, µs 단위 타이밍 제약을 100 MHz 클럭 카운터로 직접 만들어 내는 것을 목표로 했습니다.',
-  role:'uart_controller · data_sender · data_receiver 설계, DS1302 연동 및 setrtc 시각 보정 경로 구현',
+  summary:'DS1302 RTC 통신과 로터리 알람을 Verilog FSM으로 구현하고, 오실로스코프 실측으로 검증한 공조 제어기.',
+  chips:['Verilog HDL','DS1302 RTC','2단 FSM','Rotary Encoder','Oscilloscope'],
+  overview:'Basys3 보드에 DHT11(온습도)·DS1302(RTC)를 연동한 스마트 공조기에서 <b>RTC 시각 관리와 알람 제어</b>를 담당했습니다. 통신 방식이 서로 다른 모듈을 각각의 FSM으로 설계해 하나의 비트스트림에 통합했고, µs 단위 타이밍 제약을 라이브러리에 맡기지 않고 100 MHz 클럭 카운터로 직접 만들어 냈습니다.',
+  role:'<b>DS1302(RTC) controller/logic FSM 및 로터리·부저 알람 제어 전담</b> — 오실로스코프 실측 검증 담당',
   design:[
-    '<b>DHT11 single-wire</b> — 8-state FSM으로 start / response / 40 bit 수신 / 체크섬 검증 단계를 구현하고, inout 버스 방향을 상태별로 전환합니다.',
-    '<b>DS1302 3-wire</b> — 컨트롤러 FSM과 로직 FSM을 2단으로 분리해 read/write 시퀀스를 관리하고, BCD를 디코딩해 초·분·시를 출력합니다.',
-    '<b>원격 시각 보정</b> — UART RX로 받은 <code>setrtcYYMMDDhhmmss</code>를 circular queue에 버퍼링하고, <code>ds1302_busy</code> 구간에는 trigger를 억제해 쓰기 충돌을 막았습니다.',
-    '<b>3단계 검증 체계</b> — Block Diagram · FSM 선설계 → 모듈별 Test Bench → 오실로스코프 실측의 순서를 고정했습니다.'
+    '<b>DS1302 2단 FSM</b> — controller FSM(WP 해제 → 시각 6바이트 순차 write → WP 재설정)과 logic FSM(IDLE → CE_High → CMD → RW Data → CE_Low)을 분리했습니다. CE 상승 후 SCLK rising edge에서 수신하는 특성에 맞춰 falling edge마다 다음 비트를 미리 실었고, <code>inout</code> 포트를 방향 전환해 단일 data선으로 read·write를 처리합니다.',
+    '<b>UART 시각 보정 연동</b> — 수신한 <code>setrtc</code> 명령을 circular queue에 저장하고, DS1302가 busy가 아닐 때만 48bit 시각을 write하도록 트리거해 쓰기 충돌과 데이터 유실을 막았습니다.',
+    '<b>로터리·버튼 알람</b> — SET_HOUR → SET_MIN → SET_DONE FSM으로 동작하며, 로터리 위상차(11→01→00→10)로 회전 방향(CW/CCW)을 판별해 시·분을 증감합니다. RTC 시각이 알람과 일치하는 순간 500 ms 비프 패턴과 음계 주파수를 생성하고, 알람 중에는 SW와 무관하게 KEY로 즉시 해제되도록 우선순위를 보장했습니다.',
+    '<b>3단계 검증 체계</b> — Block Diagram·FSM 선설계 → 모듈별 Test Bench → 오실로스코프 실측의 순서를 고정했습니다.'
   ],
   trouble:[
-    ['setrtc 입력 시 시각이 깨짐','DS1302 write 진행 중 새 trigger가 들어와 시퀀스가 겹침','busy 게이팅 + circular queue 버퍼링으로 트리거 직렬화'],
-    ['DHT11 데이터가 간헐적으로 틀림','접촉 불량 및 pull-up 조건 미충족','오실로스코프로 18 ms low + 30 µs pull-up 구간 실측 후 결선·타이밍 보정'],
-    ['예외 상황이 개별적으로만 식별됨','timeout / 체크섬 오류 처리가 모듈에 흩어져 있음','error_controller로 집약해 오류 코드 표시·재시도를 일원화 (개선 예정)']
+    ['DS1302 시각 데이터가 무작위로 깨짐','비동기 입력이 FPGA 클럭과 어긋나는 Metastability','입력단에 <b>2단 플립플롭</b>을 추가해 신호 동기화'],
+    ['setrtc write 도중 새 명령과 충돌','DS1302 busy 구간에 새 trigger가 유입','circular queue 버퍼링 + busy 게이팅으로 트리거 직렬화'],
+    ['예외 처리가 모듈마다 흩어짐','timeout·체크섬 오류가 개별적으로만 식별','error controller로 집약해 일괄 처리 구상 (개선 예정)']
   ],
   result:[
-    'TB에서 온도 25 / 습도 60 주입 시 <b>data = 55_00_3C_00_19</b>, 체크섬 0x55 일치 확인',
-    'DS1302 SCLK/DATA 실측으로 80h·82h·84h 레지스터 주소·값 일치 검증',
-    '모듈 규모가 커질수록 <b>Block Diagram·FSM 선설계</b>가 인터페이스 정의와 디버깅 효율에 결정적임을 확인'
+    '<code>setrtc 260310131800</code> 입력 시 SCLK에 동기화된 data 비트열이 규격대로 전송됨을 <b>오실로스코프로 검증</b>',
+    'Test Bench 통과 이후에도 남는 하드웨어 이슈(Metastability 등)를 실측으로 확인',
+    '규모가 클수록 <b>Block Diagram·FSM 선설계</b>가 모듈 간 인터페이스 충돌을 줄이는 핵심임을 체감',
+    '시뮬레이션은 가정한 조건을 검증할 뿐, 오실로스코프 실측이 필수임을 학습'
   ]
 }
 ];
@@ -518,9 +505,9 @@ grid.innerHTML = PROJECTS.map((p,i)=>`
       <h3 class="pcard__title">${p.title}</h3>
       <p class="pcard__sum">${p.summary}</p>
       <div class="chips">${p.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div>
+      <p class="pcard__more">자세히 보기 →</p>
     </div>
-  </button>`).join('')
-  + `<div class="pcard pcard--empty rv">프로젝트 추가 슬롯<br><span style="font-size:12px">스크립트의 PROJECTS 배열에 항목을 추가하면<br>카드와 상세 화면이 함께 생성됩니다</span></div>`;
+  </button>`).join('');
 
 /* 모달 */
 const modal=document.getElementById('modal'), mBody=document.getElementById('mBody');
