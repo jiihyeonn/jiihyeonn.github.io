@@ -447,6 +447,7 @@ const PROJECTS=[
   title:'Smart Medicine Dispenser (스마트 알약 디스펜서)',
   summary:'인증·처방 판단·DB를 역할별 클라이언트로 분리하고, 물리적 배출이 확인된 뒤에만 DB를 갱신하는 Fail-Safe 무인 의약품 배출 서버.',
   chips:['Arduino','Raspberry Pi','TCP Socket','멀티클라이언트','FSM','MariaDB'],
+  pdf:'./file/Leak_Guard_박지현.pdf',
   overview:'사용자가 RFID·키패드로 UserID를 입력하면 라즈베리파이 IoT 서버가 DB 기반으로 처방 조건을 검증하고 서보모터로 약품을 배출하는 무인 시스템입니다. <b>배출부(STM32)와 인증 단말(Arduino)을 직접 연결하지 않고</b> 모든 명령을 서버가 중계해, 외부망과 하드웨어 제어부를 분리(물리 보안)했습니다. 처방 규칙을 코드가 아닌 <b>DB 테이블로 관리</b>해 재컴파일 없이 약품·나이·알러지·재고 조건을 바꿀 수 있습니다.',
   role:'<b>Arduino 인증 단말 + 라즈베리파이 서버 전담</b> — DOC(처방 판단)·LOG(인증)·SQL(DB 게이트웨이) 클라이언트 설계·구현',
   design:[
@@ -473,7 +474,7 @@ const PROJECTS=[
   title:'Smart Air Handling Unit (스마트 공조기)',
   summary:'DS1302 RTC 통신과 로터리 알람을 Verilog FSM으로 구현하고, 오실로스코프 실측으로 검증한 공조 제어기.',
   chips:['Verilog HDL','DS1302 RTC','2단 FSM','Rotary Encoder','Oscilloscope'],
-  pdf:'./file/4조_AHU_박준모_박지현.pdf',
+  pdf:'./file/AHU_박지현.pdf',
   overview:'Basys3 보드에 DHT11(온습도)·DS1302(RTC)를 연동한 스마트 공조기에서 <b>RTC 시각 관리와 알람 제어</b>를 담당했습니다. 통신 방식이 서로 다른 모듈을 각각의 FSM으로 설계해 하나의 비트스트림에 통합했고, µs 단위 타이밍 제약을 라이브러리에 맡기지 않고 100 MHz 클럭 카운터로 직접 만들어 냈습니다.',
   role:'<b>DS1302(RTC) controller/logic FSM 및 로터리·부저 알람 제어 전담</b> — 오실로스코프 실측 검증 담당',
   design:[
