@@ -22,18 +22,13 @@
 :root{
   --bg:#FFFFFF;
   --bg-soft:#F2F5F9;
-  --ink:#0E1116;      /* 본문 핵심 — 거의 검정 */
-  --ink-2:#2E3640;    /* 보조 본문 — 충분히 진한 회색 */
-  --ink-3:#5A6472;    /* 라벨/메타 — 읽히는 회색 */
+  --ink:#0E1116;
+  --ink-2:#2E3640;
+  --ink-3:#5A6472;
   --line:#D7DDE5;
-  --navy:#0E7490;     /* jewel teal — 단색 강조(가독성용) */
-  --navy-2:#0B5D74;
-  --navy-lt:#E1F2F5;
-  --g1:#4338CA;       /* indigo */
-  --g2:#0E7490;       /* teal */
-  --g3:#059669;       /* emerald */
-  --grad:linear-gradient(120deg,#4338CA 0%,#0E7490 52%,#059669 100%);
-  --grad-deep:linear-gradient(120deg,#3B32B8 0%,#0E7490 50%,#047857 100%);
+  --navy:#1B3B6F;     /* 메인 강조 — 딥 네이비 단색 */
+  --navy-2:#12294F;   /* hover/강한 배경 */
+  --navy-lt:#E9EEF7;  /* 옅은 배경 (칩·코드·뱃지) */
   --maxw:1080px;
   --sans:'Noto Sans KR','Inter',-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
   --en:'Inter','Noto Sans KR',sans-serif;
@@ -55,7 +50,6 @@ img{max-width:100%;display:block}
 .skip:focus{left:16px;top:16px;background:var(--navy);color:#fff;padding:10px 14px;z-index:99}
 strong,b{font-weight:700;color:var(--ink)}
 
-/* ───── header ───── */
 .top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .top__in{display:flex;align-items:center;justify-content:space-between;height:66px}
 .logo{font-family:var(--en);font-weight:900;font-size:18px;letter-spacing:-.01em;color:var(--ink)}
@@ -65,7 +59,6 @@ strong,b{font-weight:700;color:var(--ink)}
 @media(max-width:760px){.menu{gap:15px}.menu a{font-size:12.5px}}
 @media(max-width:520px){.menu a.opt{display:none}}
 
-/* ───── hero ───── */
 .hero{padding:118px 0 124px}
 .hero__eyebrow{
   font-family:var(--en);font-size:14px;font-weight:700;letter-spacing:.14em;
@@ -74,9 +67,7 @@ strong,b{font-weight:700;color:var(--ink)}
 .hero h1{
   font-family:var(--en);font-weight:900;
   font-size:clamp(50px,9vw,94px);line-height:1.0;letter-spacing:-.035em;
-  margin:0 0 28px;
-  background:var(--grad);-webkit-background-clip:text;background-clip:text;
-  -webkit-text-fill-color:transparent;color:var(--g1)
+  margin:0 0 28px;color:var(--navy)
 }
 .hero h1 span{display:block}
 .hero__sub{font-size:21px;color:var(--ink-2);margin:0 0 40px;font-weight:500;line-height:1.5}
@@ -84,15 +75,14 @@ strong,b{font-weight:700;color:var(--ink)}
 .btn{
   display:inline-block;font-family:var(--en);font-size:15px;font-weight:700;
   padding:15px 30px;border-radius:3px;border:0;
-  background:var(--grad-deep);color:#fff;cursor:pointer;transition:.2s;
-  box-shadow:0 4px 14px rgba(14,116,144,.30)
+  background:var(--navy);color:#fff;cursor:pointer;transition:.2s;
+  box-shadow:0 4px 14px rgba(27,59,111,.22)
 }
-.btn:hover{filter:brightness(1.08);text-decoration:none;color:#fff;transform:translateY(-1px);box-shadow:0 7px 22px rgba(14,116,144,.40)}
+.btn:hover{background:var(--navy-2);text-decoration:none;color:#fff;transform:translateY(-1px);box-shadow:0 7px 20px rgba(27,59,111,.30)}
 .btn--out{background:transparent;color:var(--navy);border:2px solid var(--navy);padding:13px 28px;box-shadow:none}
 .btn--out:hover{background:var(--navy-lt);color:var(--navy-2);filter:none;transform:translateY(-1px)}
 .btn--sm{display:inline-flex;align-items:center;gap:8px;font-size:14px;padding:10px 20px}
 
-/* ───── section ───── */
 .sec{padding:100px 0;border-top:1px solid var(--line)}
 .sec--soft{background:var(--bg-soft)}
 .sec__head{margin-bottom:48px}
@@ -104,7 +94,6 @@ strong,b{font-weight:700;color:var(--ink)}
 .sec__title{font-family:var(--en);font-size:clamp(32px,5vw,42px);font-weight:900;letter-spacing:-.025em;margin:0;line-height:1.15;color:var(--ink)}
 .sec__note{font-size:15px;color:var(--ink-2);margin:14px 0 0;font-weight:500}
 
-/* ───── about ───── */
 .about{display:block}
 .photo{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--bg-soft)}
 .photo img{width:100%;aspect-ratio:3/4;object-fit:cover}
@@ -121,7 +110,6 @@ strong,b{font-weight:700;color:var(--ink)}
 @media(max-width:760px){.info{max-width:100%}}
 @media(max-width:520px){.info__row{grid-template-columns:1fr;gap:2px}}
 
-/* ───── projects ───── */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px}
 .pcard{
   border:1px solid var(--line);border-radius:4px;background:#fff;
@@ -130,9 +118,9 @@ strong,b{font-weight:700;color:var(--ink)}
 }
 .pcard:hover{border-color:var(--navy);box-shadow:0 8px 26px rgba(18,58,107,.13);transform:translateY(-3px)}
 .pcard__strip{
-  background:var(--grad);border-bottom:0;
+  background:var(--navy);border-bottom:0;
   padding:13px 20px;font-family:var(--en);font-size:12.5px;font-weight:600;
-  letter-spacing:.02em;color:#F1FCFD;
+  letter-spacing:.02em;color:#E9EEF7;
   display:flex;justify-content:space-between;align-items:center;gap:10px
 }
 .badge{font-size:11px;font-weight:800;color:var(--navy);background:#fff;padding:3px 9px;border-radius:3px;white-space:nowrap;letter-spacing:.02em}
@@ -144,14 +132,13 @@ strong,b{font-weight:700;color:var(--ink)}
 .chip{font-family:var(--en);font-size:12px;font-weight:600;padding:4px 10px;border:1px solid var(--line);border-radius:3px;color:var(--ink-2);background:#fff}
 .chip--on{border-color:var(--navy);color:#fff;background:var(--navy);font-weight:700}
 .pcard__more{font-family:var(--en);font-size:12.5px;font-weight:700;color:var(--navy);margin:16px 0 0;display:flex;align-items:center;gap:5px}
+.pcard__pdf{display:inline-block;font-size:10.5px;font-weight:800;color:#fff;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.55);padding:2px 7px;border-radius:3px;letter-spacing:.03em}
 
-/* ───── skills ───── */
 .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px}
 .sk h3{font-family:var(--en);font-size:19px;font-weight:800;margin:0 0 20px;padding-bottom:14px;border-bottom:2px solid var(--ink);color:var(--ink)}
 .sk h4{font-family:var(--en);font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:22px 0 12px}
 .sk h4:first-of-type{margin-top:0}
 
-/* ───── awards / careers ───── */
 .tl{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
 .tl li{display:grid;grid-template-columns:190px 1fr;gap:26px;padding:24px 2px;border-bottom:1px solid var(--line)}
 .tl time{font-family:var(--en);font-size:15px;font-weight:700;color:var(--navy);padding-top:2px}
@@ -159,18 +146,16 @@ strong,b{font-weight:700;color:var(--ink)}
 .tl p{margin:0;font-size:15.5px;color:var(--ink-2);font-weight:500;line-height:1.7}
 .tl p b{font-weight:800;color:var(--ink)}
 .dashlist{color:var(--ink-2)}
-.prize{display:inline-block;font-family:var(--en);font-size:12.5px;font-weight:800;color:#fff;background:var(--grad-deep);padding:3px 11px;border-radius:3px;margin-left:10px;vertical-align:middle;letter-spacing:.02em;box-shadow:0 2px 9px rgba(67,56,202,.28)}
+.prize{display:inline-block;font-family:var(--en);font-size:12.5px;font-weight:800;color:#fff;background:var(--navy);padding:3px 11px;border-radius:3px;margin-left:10px;vertical-align:middle;letter-spacing:.02em}
 .hours{display:inline-block;font-family:var(--en);font-size:12px;font-weight:700;color:var(--navy);background:var(--navy-lt);padding:2px 9px;border-radius:3px;margin-left:8px;vertical-align:middle}
 @media(max-width:600px){.tl li{grid-template-columns:1fr;gap:8px}}
 
-/* ───── footer ───── */
 .foot{border-top:1px solid var(--line);background:var(--bg-soft);padding:70px 0 52px}
 .foot__grid{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
 .foot__mail{font-family:var(--en);font-size:clamp(26px,4.5vw,40px);font-weight:900;letter-spacing:-.02em}
-.foot__mail a{color:var(--g2);font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.foot__mail a{color:var(--navy);font-weight:900}
 .foot__copy{font-family:var(--en);font-size:13px;color:var(--ink-3);margin:44px 0 0;font-weight:500}
 
-/* ───── modal ───── */
 .modal{position:fixed;inset:0;z-index:80;display:none;background:rgba(14,17,22,.55);padding:20px;overflow-y:auto}
 .modal.open{display:block}
 .sheet{max-width:880px;margin:40px auto;background:#fff;border-radius:5px;box-shadow:0 20px 60px rgba(0,0,0,.28)}
@@ -200,6 +185,13 @@ strong,b{font-weight:700;color:var(--ink)}
   .tbl td:nth-child(2)::before{content:'원인 — ';color:var(--ink-3);font-weight:700}
   .tbl td:last-child::before{content:'해결 — ';color:var(--ink-3);font-weight:700}
 }
+
+/* ───── PDF 임베드 뷰어 ───── */
+.pdfbox{margin-top:8px;border:1px solid var(--line);border-radius:5px;overflow:hidden;background:var(--bg-soft)}
+.pdfbox iframe{width:100%;height:580px;border:0;display:block}
+.pdfnote{font-size:13.5px;color:var(--ink-3);font-weight:500;margin:12px 0 0;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+@media(max-width:620px){.pdfbox iframe{height:62vh}}
+
 .rv{opacity:0;transform:translateY(14px)}
 .rv.in{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease}
 @media(prefers-reduced-motion:reduce){
@@ -267,7 +259,7 @@ strong,b{font-weight:700;color:var(--ink)}
     <div class="sec__head">
       <p class="sec__label">Projects</p>
       <h2 class="sec__title">Projects</h2>
-      <p class="sec__note">카드를 누르면 담당 역할과 트러블슈팅까지 확인할 수 있습니다.</p>
+      <p class="sec__note">카드를 누르면 담당 역할과 트러블슈팅, 상세 자료(PDF)까지 확인할 수 있습니다.</p>
     </div>
     <div class="grid" id="grid"></div>
     <p style="margin-top:34px">
@@ -417,6 +409,7 @@ strong,b{font-weight:700;color:var(--ink)}
 <script>
 /* ══════════════════════════════════════════════════
    프로젝트 데이터 — 이 배열만 수정하면 카드/상세 동시 반영
+   pdf 필드를 넣으면 상세 모달 맨 아래에 PDF 뷰어가 자동 생성됩니다.
    ══════════════════════════════════════════════════ */
 const PROJECTS=[
 {
@@ -481,6 +474,7 @@ const PROJECTS=[
   title:'Smart Air Handling Unit (스마트 공조기)',
   summary:'DS1302 RTC 통신과 로터리 알람을 Verilog FSM으로 구현하고, 오실로스코프 실측으로 검증한 공조 제어기.',
   chips:['Verilog HDL','DS1302 RTC','2단 FSM','Rotary Encoder','Oscilloscope'],
+  pdf:'./file/4조_AHU_박준모_박지현.pdf',
   overview:'Basys3 보드에 DHT11(온습도)·DS1302(RTC)를 연동한 스마트 공조기에서 <b>RTC 시각 관리와 알람 제어</b>를 담당했습니다. 통신 방식이 서로 다른 모듈을 각각의 FSM으로 설계해 하나의 비트스트림에 통합했고, µs 단위 타이밍 제약을 라이브러리에 맡기지 않고 100 MHz 클럭 카운터로 직접 만들어 냈습니다.',
   role:'<b>DS1302(RTC) controller/logic FSM 및 로터리·부저 알람 제어 전담</b> — 오실로스코프 실측 검증 담당',
   design:[
@@ -513,7 +507,7 @@ grid.innerHTML = PROJECTS.map((p,i)=>`
       <h3 class="pcard__title">${p.title}</h3>
       <p class="pcard__sum">${p.summary}</p>
       <div class="chips">${p.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div>
-      <p class="pcard__more">자세히 보기 →</p>
+      <p class="pcard__more">자세히 보기 →${p.pdf?` <span class="pcard__pdf">PDF</span>`:''}</p>
     </div>
   </button>`).join('');
 
@@ -524,6 +518,16 @@ function open(i){
   const p=PROJECTS[i]; last=document.activeElement;
   document.getElementById('mMeta').innerHTML=`${p.period} · ${p.platform}`;
   document.getElementById('mTitle').innerHTML=p.title;
+  const pdfBlock = p.pdf ? `
+    <h3>상세 자료 (PDF)</h3>
+    <div class="pdfbox">
+      <iframe src="${p.pdf}#toolbar=0&navpanes=0&view=FitH" title="${p.title} 상세 자료" loading="lazy"></iframe>
+    </div>
+    <p class="pdfnote">
+      <span>브라우저에서 PDF가 보이지 않으면 아래 버튼으로 열어 주세요.</span>
+      <a class="btn btn--out btn--sm" href="${p.pdf}" target="_blank" rel="noopener">새 창으로 열기 ↗</a>
+      <a class="btn btn--out btn--sm" href="${p.pdf}" download>다운로드 ↓</a>
+    </p>` : '';
   mBody.innerHTML=`
     <h3>프로젝트 개요</h3><p>${p.overview}</p>
     <h3>담당 역할</h3><p>${p.role}</p>
@@ -531,7 +535,8 @@ function open(i){
     <h3>트러블슈팅</h3>
     <table class="tbl"><thead><tr><th>Issue</th><th>Cause</th><th>Solution</th></tr></thead>
     <tbody>${p.trouble.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('')}</tbody></table>
-    <h3>결과 및 고찰</h3><ul>${p.result.map(r=>`<li>${r}</li>`).join('')}</ul>`;
+    <h3>결과 및 고찰</h3><ul>${p.result.map(r=>`<li>${r}</li>`).join('')}</ul>
+    ${pdfBlock}`;
   modal.classList.add('open'); document.body.style.overflow='hidden';
   document.getElementById('mClose').focus();
 }
