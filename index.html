@@ -192,6 +192,14 @@ strong,b{font-weight:700;color:var(--ink)}
 .pdfnote{font-size:13.5px;color:var(--ink-3);font-weight:500;margin:12px 0 0;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 @media(max-width:620px){.pdfbox iframe{height:62vh}}
 
+/* ───── 전체 포트폴리오 뷰어 ───── */
+.pdfbar{display:flex;gap:12px;flex-wrap:wrap;margin:0 0 24px;align-items:center}
+.pdfviewer{border:1px solid var(--line);border-radius:5px;overflow:hidden;background:var(--bg-soft);box-shadow:0 8px 30px rgba(18,58,107,.08)}
+.pdfviewer object,.pdfviewer iframe{width:100%;height:min(1080px,84vh);border:0;display:block}
+.pdffall{padding:56px 24px;text-align:center;color:var(--ink-2);font-size:15.5px;font-weight:500;line-height:1.8}
+.pdffall .btn{margin-top:18px}
+@media(max-width:620px){.pdfviewer object,.pdfviewer iframe{height:70vh}}
+
 .rv{opacity:0;transform:translateY(14px)}
 .rv.in{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease}
 @media(prefers-reduced-motion:reduce){
@@ -213,6 +221,7 @@ strong,b{font-weight:700;color:var(--ink)}
       <a href="#skills">Skills</a>
       <a href="#awards" class="opt">Awards</a>
       <a href="#careers" class="opt">Careers</a>
+      <a href="#portfolio">Portfolio</a>
     </nav>
   </div>
 </header>
@@ -378,6 +387,36 @@ strong,b{font-weight:700;color:var(--ink)}
   </div>
 </section>
 
+<!-- ══ PORTFOLIO (전체 PDF 뷰어) ══ -->
+<section class="sec" id="portfolio">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="sec__label">Portfolio</p>
+      <h2 class="sec__title">박지현 포트폴리오</h2>
+      <p class="sec__note">전체 포트폴리오를 아래에서 바로 열람할 수 있습니다. 다운로드 또는 새 창 열기도 가능합니다.</p>
+    </div>
+
+    <p class="pdfbar">
+      <a class="btn btn--sm" href="./file/박지현_포트폴리오.pdf" download="박지현_포트폴리오.pdf">
+        <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M8 1a.75.75 0 0 1 .75.75v7.19l2.22-2.22a.75.75 0 1 1 1.06 1.06l-3.5 3.5a.75.75 0 0 1-1.06 0l-3.5-3.5a.75.75 0 0 1 1.06-1.06l2.22 2.22V1.75A.75.75 0 0 1 8 1ZM2.75 12.5a.75.75 0 0 1 .75.75v.25h9v-.25a.75.75 0 0 1 1.5 0v.5a1.25 1.25 0 0 1-1.25 1.25h-9.5A1.25 1.25 0 0 1 2 13.75v-.5a.75.75 0 0 1 .75-.75Z"/></svg>
+        PDF 다운로드
+      </a>
+      <a class="btn btn--out btn--sm" href="./file/박지현_포트폴리오.pdf" target="_blank" rel="noopener">
+        새 창으로 열기 ↗
+      </a>
+    </p>
+
+    <div class="pdfviewer rv">
+      <object data="./file/박지현_포트폴리오.pdf#view=FitH" type="application/pdf" aria-label="박지현 포트폴리오 PDF 뷰어">
+        <div class="pdffall">
+          <p>이 브라우저에서는 PDF를 바로 표시할 수 없습니다.<br>아래 버튼으로 열람하거나 다운로드해 주세요.</p>
+          <a class="btn" href="./file/박지현_포트폴리오.pdf" target="_blank" rel="noopener">포트폴리오 PDF 열기 ↗</a>
+        </div>
+      </object>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <footer class="foot" id="contact">
@@ -447,7 +486,7 @@ const PROJECTS=[
   title:'Smart Medicine Dispenser (스마트 알약 디스펜서)',
   summary:'인증·처방 판단·DB를 역할별 클라이언트로 분리하고, 물리적 배출이 확인된 뒤에만 DB를 갱신하는 Fail-Safe 무인 의약품 배출 서버.',
   chips:['Arduino','Raspberry Pi','TCP Socket','멀티클라이언트','FSM','MariaDB'],
-  pdf:'./file/smart_medicine_dispenseer.pdf',
+  pdf:'./file/smart_medicine_dispenser.pdf',
   overview:'사용자가 RFID·키패드로 UserID를 입력하면 라즈베리파이 IoT 서버가 DB 기반으로 처방 조건을 검증하고 서보모터로 약품을 배출하는 무인 시스템입니다. <b>배출부(STM32)와 인증 단말(Arduino)을 직접 연결하지 않고</b> 모든 명령을 서버가 중계해, 외부망과 하드웨어 제어부를 분리(물리 보안)했습니다. 처방 규칙을 코드가 아닌 <b>DB 테이블로 관리</b>해 재컴파일 없이 약품·나이·알러지·재고 조건을 바꿀 수 있습니다.',
   role:'<b>Arduino 인증 단말 + 라즈베리파이 서버 전담</b> — DOC(처방 판단)·LOG(인증)·SQL(DB 게이트웨이) 클라이언트 설계·구현',
   design:[
